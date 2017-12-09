@@ -10,4 +10,8 @@ public class Basket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
     }
+
+    public void testv (){
+        
+    }
 }
