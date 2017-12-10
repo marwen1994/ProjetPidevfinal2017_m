@@ -20,6 +20,13 @@ public class Matdispo {
         this.image_name = image_name;
         this.image_path = image_path;
     }
+    public Matdispo( String name, String description, int qte, String image_path) {
+
+        this.name = name;
+        this.description = description;
+        this.qte = qte;
+        this.image_path = image_path;
+    }
 
     public Matdispo() {
     }

@@ -32,12 +32,12 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(spec);
 
 
-        spec = tabHost.newTabSpec("Bascket");
-
-        spec.setIndicator("",res.getDrawable(R.drawable.basket));
-        intent = new Intent(this, Basket.class);
-        spec.setContent(intent);
-        tabHost.addTab(spec);
+//        spec = tabHost.newTabSpec("Bascket");
+//
+//        spec.setIndicator("",res.getDrawable(R.drawable.basket));
+//        intent = new Intent(this, Basket.class);
+//        spec.setContent(intent);
+//        tabHost.addTab(spec);
 
 
         // Do the same for the other tabs

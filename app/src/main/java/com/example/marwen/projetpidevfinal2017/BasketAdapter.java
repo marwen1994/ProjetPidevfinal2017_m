@@ -1,4 +1,8 @@
 package com.example.marwen.projetpidevfinal2017;
+
+/**
+ * Created by marwe on 10/12/2017.
+ */
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,15 +13,14 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomListAdapter extends BaseAdapter implements Filterable{
+public class BasketAdapter  extends BaseAdapter implements Filterable {
     private Activity activity;
     private Context mContext;
     private LayoutInflater inflater;
@@ -26,54 +29,55 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
     private ItemFilter mFilter = new ItemFilter();
 
 
-    public CustomListAdapter(Activity activity, List<Matdispo> movieItems) {
+    public BasketAdapter(Activity activity, List<Matdispo> movieItems) {
         this.activity = activity;
         this.movieItems = movieItems;
         this.contactListFiltered=movieItems;
         //mContext = context ;
+
     }
 
     @Override
     public int getCount() {
-        return contactListFiltered.size();
+        return 0;
     }
 
     @Override
-    public Object getItem(int location) {
-        return contactListFiltered.get(location);
+    public Object getItem(int position) {
+        return null;
     }
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return 0;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         if (inflater == null)
-            inflater = (LayoutInflater) activity
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null)
-            convertView = inflater.inflate(R.layout.row2, null);
+            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (convertView == null) convertView = inflater.inflate(R.layout.row_basket, null);
 
-      //  imageLoader = AppController.getInstance().getImageLoader();
-        TextView nom = (TextView) convertView.findViewById(R.id.nom);
-        TextView categorie = (TextView) convertView.findViewById(R.id.cat);
-        ImageView im = (ImageView) convertView.findViewById(R.id.im);
+        //  imageLoader = AppController.getInstance().getImageLoader();
+        TextView nom = (TextView) convertView.findViewById(R.id.nom_basket);
+        TextView categorie = (TextView) convertView.findViewById(R.id.qte);
+        ImageView im = (ImageView) convertView.findViewById(R.id.im_basket);
+
+        // getting movie data for the row
+        Matdispo m = contactListFiltered.get(position);
 
 
-         Matdispo m = contactListFiltered.get(position);
-
+        // title
          nom.setText(m.getName());
+        Toast.makeText(mContext, "gggggggggg", Toast.LENGTH_SHORT).show();
          Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
          categorie.setText(m.getQte()+"");
-
-        return convertView;
+         return convertView;
     }
 
-public Filter getFilter() {
-        return mFilter;
+    @Override
+    public Filter getFilter() {
+        return mFilter ;
     }
 
     private class ItemFilter extends Filter {
@@ -113,16 +117,11 @@ public Filter getFilter() {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+/////////////////////ITEM FILTER CLASSSS ///////////////////////////////////////////
+

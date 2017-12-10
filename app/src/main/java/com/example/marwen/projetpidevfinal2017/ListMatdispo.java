@@ -159,11 +159,11 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
              Intent intent = new Intent(ListMatdispo.this,Detail.class);
                Bundle bundle = new Bundle();
                bundle.putString("nom",m.getName());
-               Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
+               //Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
                bundle.putInt("qte",m.getQte());
                bundle.putString("description",m.getDescription());
                bundle.putString("path",m.getImage_path());
-              Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
+             // Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
 
              //  ImageView imageView = (ImageView) viewx.findViewById(R.id.im);
               // bundle.putParcelable("image",((BitmapDrawable)imageView.getDrawable()).getBitmap());
@@ -204,6 +204,20 @@ LIST.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() 
     @Override
     public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
         Toast.makeText(ListMatdispo.this, "This equipement is in your bascket", Toast.LENGTH_SHORT).show();
+        Matdispo m= (Matdispo) adapter.getItem(position);
+        Intent intent = new Intent(ListMatdispo.this,Basket.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("nom",m.getName());
+       // Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
+        bundle.putInt("qte",m.getQte());
+        bundle.putString("description",m.getDescription());
+        bundle.putString("path",m.getImage_path());
+        //Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
+
+        //  ImageView imageView = (ImageView) viewx.findViewById(R.id.im);
+        // bundle.putParcelable("image",((BitmapDrawable)imageView.getDrawable()).getBitmap());
+        intent.putExtras(bundle);
+        startActivity(intent);
         return false;
     }
 });
