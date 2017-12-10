@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "204862015452",
+    "firebase_url": "https://miniprojet-91f12.firebaseio.com",
+    "project_id": "miniprojet-91f12",
+    "storage_bucket": "miniprojet-91f12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204862015452:android:14e3f00d74496c3a",
+        "android_client_info": {
+          "package_name": "com.example.marwen.projetpidevfinal2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204862015452-framoervrfs8d7pas95gl3bfbu30q5eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marwen.projetpidevfinal2017",
+            "certificate_hash": "1a50971348e854feb1dad5b8468c910aa985e638"
+          }
+        },
+        {
+          "client_id": "204862015452-fqdcgatl1dv4vaj38mgvpnust45gb7fr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATbjO42jNmlR8XO2X_xt6SfjeLqokrT8k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204862015452-fqdcgatl1dv4vaj38mgvpnust45gb7fr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "204862015452-ld5oon9gi0f51n8eq9bkf59a5r50lq44.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ESPRIT2017.MARWEN.GMP"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

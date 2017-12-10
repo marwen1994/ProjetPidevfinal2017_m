@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class MainActivity extends TabActivity {
     /**
      * Called when the activity is first created.
@@ -19,6 +21,7 @@ public class MainActivity extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
         Resources res = getResources();
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
         TabHost.TabSpec spec; // Reusable TabSpec for each tab
