@@ -10,26 +10,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".loginRegisterreset.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Register" />
-        <activity android:name=".Reset" />
-        <activity android:name=".Confirm" />
+        <activity android:name=".loginRegisterreset.Login" />
+        <activity android:name=".loginRegisterreset.Register" />
+        <activity android:name=".loginRegisterreset.Reset" />
+        <activity android:name=".loginRegisterreset.Confirm" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".Splash" />
+        <activity android:name=".User.MainActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".AjoutMatrielNonDispo" />
-        <activity android:name=".AddMatdisponible" />
-        <activity android:name=".ListMatdispo" />
-        <activity android:name=".Detail" />
+        <activity android:name=".User.AjoutMatrielNonDispo" />
+        <activity android:name=".admin.AddMatdisponible" />
+        <activity android:name=".admin.ListMatdispo" />
+        <activity android:name=".admin.Detail" />
         <activity android:name=".Reclamation" />
-        <activity android:name=".Basket"></activity>
+        <activity android:name=".User.Basket" />
+        <activity android:name=".loginRegisterreset.AfterSplash" />
+        <activity android:name=".loginRegisterreset.SecondInscrip"></activity>
     </application>
 
 </manifest>

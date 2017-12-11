@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.Basket">
+    tools:context="com.example.marwen.projetpidevfinal2017.User.Basket">
 
 </android.support.constraint.ConstraintLayout>

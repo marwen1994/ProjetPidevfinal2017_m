@@ -1,4 +1,4 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.loginRegisterreset;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.marwen.projetpidevfinal2017.R;
+import com.example.marwen.projetpidevfinal2017.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,7 +29,7 @@ public class Register extends AppCompatActivity {
 TextView textView ,textView1,textView2,textView3,textView4;
 EditText editText,editText1,editText2,editText3;
     Button button;
-    String url = "http://10.0.2.2/miniprojet/public/storeUser";
+
     String url1 = "http://10.0.2.2/miniprojet/public/checkmail";
 
     @Override
@@ -69,7 +71,7 @@ EditText editText,editText1,editText2,editText3;
 
                 }
 
-                else if ((cheak())) {
+             else   if ((cheak())) {
 
                     Toast.makeText(Register.this, "Vous etes Inscrits deja", Toast.LENGTH_SHORT).show();
 
@@ -77,51 +79,17 @@ EditText editText,editText1,editText2,editText3;
                     editText1.setText("");
 
                 }
-                else {
-                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
 
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                Boolean res = jsonObject.getBoolean("result");
+   else {
 
-                                if (res) {
-                                    Toast.makeText(Register.this, "Vous etes Inscrits", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Register.this, Login.class);
-                                    startActivity(intent);
-
-                                } else {
-                                    Toast.makeText(Register.this, "te7chaaaa", Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                    new SessionManager(getApplicationContext()).setName(editText.getText().toString());
+                    new SessionManager(getApplicationContext()).UserDetail(editText1.getText().toString());
+                    new SessionManager(getApplicationContext()).UserPassword(editText2.getText().toString());
 
 
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> map = new HashMap<String, String>();
-                            map.put("name", editText.getText().toString().trim());
-                            map.put("email", editText1.getText().toString().trim());
-                            map.put("password", editText2.getText().toString().trim());
-                            return map;
-                        }
-                    };
-                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-                    queue.add(request);
-
-
+                    Intent i = new Intent(Register.this,SecondInscrip.class);
+                    startActivity(i);
                 }
                 }
 

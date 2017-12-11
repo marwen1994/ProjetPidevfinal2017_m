@@ -1,7 +1,9 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.User;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.marwen.projetpidevfinal2017.R;
 
 public class Basket extends AppCompatActivity {
 
@@ -12,6 +14,6 @@ public class Basket extends AppCompatActivity {
     }
 
     public void testv (){
-        
+
     }
 }

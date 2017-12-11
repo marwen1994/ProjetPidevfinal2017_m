@@ -1,4 +1,4 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
-import android.renderscript.Byte4;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -16,6 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.marwen.projetpidevfinal2017.HomeActivity;
+import com.example.marwen.projetpidevfinal2017.ImageProcessClass;
+import com.example.marwen.projetpidevfinal2017.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -28,6 +31,13 @@ public class AddMatdisponible extends AppCompatActivity {
     Button Upload , add ;
     Bitmap bitmap ;
     String URL ="http://10.0.2.2/miniprojet/public/setMatdispo" ;
+    String ImageName = "image_name" ;
+    String ImagePath = "image_path" ;
+    String imagenamex ;
+    String namex ;
+     String qte ;
+    String descrippx ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,11 +130,20 @@ public class AddMatdisponible extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-
                 ImageProcessClass imageProcessClass = new ImageProcessClass();
 
-                HashMap<String,String> map = new HashMap<String,String>();
-                String FinalData = imageProcessClass.ImageHttpRequest(URL, map);
+                HashMap<String,String> HashMapParams = new HashMap<String,String>();
+
+                HashMapParams.put(ImageName,imagenamex);
+
+                HashMapParams.put(ImagePath, ConvertImage);
+                HashMapParams.put("name",namex) ;
+                HashMapParams.put("description",descrippx) ;
+                HashMapParams.put("qte",qte) ;
+                HashMapParams.put("image_name",imagenamex) ;
+
+
+                String FinalData = imageProcessClass.ImageHttpRequest(URL, HashMapParams);
 
                 return FinalData;
             }
@@ -136,11 +155,11 @@ public class AddMatdisponible extends AppCompatActivity {
 
 
     public void uploadimg(View view) {
+        imagenamex = String.valueOf(imagename.getText()) ;
+        namex = String.valueOf(name.getText()) ;
+        qte = String.valueOf(quantite.getText());
+        descrippx = String.valueOf(description.getText()) ;
 
-
-        Toast.makeText(this, "Add with secces", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(AddMatdisponible.this,HomeActivity.class);
-        startActivity(intent);
 
 
      ImageUploadToServerFunction ();

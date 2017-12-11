@@ -4,149 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.Register"
-    android:background="@drawable/teheme2">
+    tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.Register"
+    android:background="@drawable/hh">
 
 
-    <ImageView
-        android:id="@+id/imageView9"
+    <TextView
+        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        app:srcCompat="@drawable/gmpl"
-        android:layout_alignParentTop="true"
+        android:text="GMP"
+        android:textColor="@color/colorAccent"
+        android:textSize="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/textView28"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Create Your Account !"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp"
+        android:layout_above="@+id/imageView10"
         android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/log"
-        android:layout_below="@+id/imageView9"
-        android:layout_alignStart="@+id/imageView12" />
+        app:srcCompat="@drawable/k"
+        android:layout_above="@+id/imageView11"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/log"
-        android:layout_below="@+id/imageView10"
+        app:srcCompat="@drawable/text1"
+        android:layout_above="@+id/imageView12"
         android:layout_alignStart="@+id/imageView10" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/log"
-        android:layout_below="@+id/imageView11"
-        android:layout_centerHorizontal="true" />
+        app:srcCompat="@drawable/text3"
+        android:layout_above="@+id/imageView13"
+        android:layout_alignStart="@+id/imageView11" />
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/log"
-        android:layout_below="@+id/imageView12"
+        app:srcCompat="@drawable/text3"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/button4"
         android:layout_alignStart="@+id/imageView12" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="Register"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:textColor="@android:color/white"
-        android:background="@drawable/btn"
-        android:layout_below="@+id/imageView13"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/next"
+        android:layout_above="@+id/textView8"
+        android:layout_alignStart="@+id/imageView13"
+        android:layout_marginBottom="17dp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
         android:text="Back To Login !"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorAccent"
         android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:text="Create Account!"
-        android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:layout_below="@+id/imageView9"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint=" User Name"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_shape_1"
-        android:layout_above="@+id/imageView11"
-        android:layout_alignStart="@+id/textView9"
+        android:layout_marginEnd="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView28"
         android:layout_marginBottom="10dp" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView12"
-        android:layout_alignEnd="@+id/textView9"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:textColor="@android:color/white"
-        android:inputType="textPersonName"
-        android:hint="  Email"
-        android:drawableLeft="@drawable/ic_shapes_2"
-        android:textColorHint="@android:color/white" />
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView13"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Your Password"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_tool_6"
-        android:textColorHint="@android:color/white"
-         />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
-        android:layout_alignEnd="@+id/editText5"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Confirm Password"
-        android:textColor="@android:color/white"
-        android:drawableLeft="@drawable/ic_tool_6"
-        android:textColorHint="@android:color/white" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText4"
+
         android:layout_alignEnd="@+id/editText3"
         android:textColor="@android:color/holo_red_dark" />
 
@@ -154,15 +100,14 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText5"
-        android:layout_alignEnd="@+id/editText5"
+
         android:textColor="@android:color/holo_red_dark" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText6"
+
         android:layout_alignStart="@+id/textView18"
         android:textColor="@android:color/holo_red_dark" />
 
@@ -173,4 +118,56 @@
         android:layout_alignEnd="@+id/textView19"
         android:layout_below="@+id/imageView13"
        android:textColor="@android:color/holo_red_dark" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:hint=" User Name"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:inputType="textPersonName"
+        android:layout_above="@+id/imageView11"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+         android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:hint="  Email"
+        android:layout_above="@+id/imageView12"
+        android:layout_alignEnd="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Your Password"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView13"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:inputType="textPassword"
+        android:hint="Confirm Password"/>
+
 </RelativeLayout>

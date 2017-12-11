@@ -4,22 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.Splash"
-    android:background="@drawable/gp">
+    tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.Splash"
+    android:background="@drawable/tec">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gestion de materiel Pim....."
-        android:textColor="@android:color/white"
-        android:textSize="27dp"
-        android:textStyle="bold"
-        android:elegantTextHeight="true"
-        tools:layout_editor_absoluteY="432dp"
-        tools:layout_editor_absoluteX="16dp"
-        android:layout_marginBottom="25dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

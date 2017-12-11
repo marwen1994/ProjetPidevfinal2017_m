@@ -1,4 +1,4 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.admin;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.example.marwen.projetpidevfinal2017.Matdispo;
+import com.example.marwen.projetpidevfinal2017.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -61,6 +63,7 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
         TextView nom = (TextView) convertView.findViewById(R.id.nom);
         TextView categorie = (TextView) convertView.findViewById(R.id.cat);
         ImageView im = (ImageView) convertView.findViewById(R.id.im);
+        ImageView im1 = (ImageView) convertView.findViewById(R.id.im1);
 
         // getting movie data for the row
         Matdispo m = contactListFiltered.get(position);
@@ -69,6 +72,7 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
         // title
          nom.setText(m.getName());
          Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
+        Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im1);
          categorie.setText(m.getQte()+"");
         // im.setImageResource(m.getCover());
 

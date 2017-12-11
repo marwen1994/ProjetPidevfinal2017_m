@@ -1,72 +1,158 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.AjoutMatrielNonDispo">
+    android:orientation="vertical"
+    android:background="@color/bb_darkBackgroundColor"
+    android:weightSum="1">
 
-    <ImageView
-        android:id="@+id/matnonimg"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="250dp">
+
+
+        <ImageView
+            android:id="@+id/matnonimg"
+            android:onClick="uploadimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/images"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="85dp" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:text="Request your equipment !"
+            android:textColor="@color/colorAccent"
+            android:scrollbarSize="80dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:onClick="uploadimg" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/grpname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/matnonimg"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Groupname"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Equipeùent URL"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
 
-    <EditText
-        android:id="@+id/matname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/grpname"
-        android:layout_below="@+id/grpname"
-        android:layout_marginTop="19dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/prix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/matname"
-        android:layout_below="@+id/matname"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Prix"
-        android:inputType="textPersonName" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
 
-    <EditText
-        android:id="@+id/descrip"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_alignEnd="@+id/prix"
-        android:layout_alignStart="@+id/prix"
-        android:layout_below="@+id/prix"
-        android:layout_marginTop="19dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textPersonName"
-        android:textAlignment="viewStart" />
+
+        <EditText
+            android:id="@+id/matname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Equipement Name"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
+
+        <EditText
+            android:id="@+id/prix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Price"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
+        <EditText
+            android:id="@+id/descrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+
+            android:background="#0000"
+            android:hint="Description"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
 
     <Button
         android:id="@+id/ajouter"
-        android:onClick="ajouter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/descrip"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:text="Ajouter" />
-</RelativeLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+   android:onClick="ajouter"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="0.01"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Add"
+        android:background="@color/colorAccent"
+        android:textSize="16dp" />
+
+
+</LinearLayout>
+
+
+</LinearLayout>

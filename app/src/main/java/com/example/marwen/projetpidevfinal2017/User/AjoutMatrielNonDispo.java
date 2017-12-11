@@ -1,4 +1,4 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.User;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,6 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.marwen.projetpidevfinal2017.ImageProcessClass;
+import com.example.marwen.projetpidevfinal2017.R;
+import com.example.marwen.projetpidevfinal2017.SessionManager;
+import com.example.marwen.projetpidevfinal2017.loginRegisterreset.SecondInscrip;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,7 +28,7 @@ import java.util.HashMap;
 
 
 public class AjoutMatrielNonDispo extends AppCompatActivity {
-    EditText grpname,name,prix,description;
+    EditText grpname,name,prix,description,url;
     ImageView matnonimg ;
     Button ajouter ;
     Bitmap bitmap;
@@ -35,16 +40,17 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
     String groupname ;
     String prixx ;
     String descripp ;
+    String urlx ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajout_matriel_non_dispo);
 
         matnonimg = (ImageView) findViewById(R.id.matnonimg) ;
-        grpname=(EditText) findViewById(R.id.grpname);
         name=(EditText) findViewById(R.id.matname);
         prix=(EditText) findViewById(R.id.prix);
         description=(EditText) findViewById(R.id.descrip);
+        url=(EditText) findViewById(R.id.url);
         ajouter = (Button)findViewById(R.id.ajouter) ;
 
     }
@@ -125,9 +131,10 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
 
                 HashMapParams.put(ImagePath, ConvertImage);
                 HashMapParams.put("name",imgname) ;
-                HashMapParams.put("groupname",groupname) ;
+                HashMapParams.put("groupname",new SessionManager(AjoutMatrielNonDispo.this).getGroup().get("group"));
                 HashMapParams.put("prix",prixx) ;
                 HashMapParams.put("description",descripp) ;
+                HashMapParams.put("url",urlx) ;
 
 
                 String FinalData = imageProcessClass.ImageHttpRequest(ServerUploadPath, HashMapParams);
@@ -152,10 +159,13 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
 
     public void ajouter(View view) {
         imgname = String.valueOf(name.getText()) ;
-        groupname = String.valueOf(grpname.getText()) ;
         prixx = String.valueOf(prix.getText()) ;
         descripp = String.valueOf(description.getText());
+        urlx = String.valueOf(url.getText());
         ImageUploadToServerFunction() ;
+        Toast.makeText(this, "Your Request HAS BEEN sent SHEACK YOUR BASKET", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AjoutMatrielNonDispo.this,MainActivity.class);
+        startActivity(intent);
 
     }
 }

@@ -1,9 +1,11 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.loginRegisterreset;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.marwen.projetpidevfinal2017.R;
 
 public class Splash extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i =new Intent(Splash.this , Login.class);
+                Intent i =new Intent(Splash.this , AfterSplash.class);
                 startActivity(i);
                 finish();
             }

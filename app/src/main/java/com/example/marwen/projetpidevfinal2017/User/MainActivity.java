@@ -1,24 +1,32 @@
-package com.example.marwen.projetpidevfinal2017;
+package com.example.marwen.projetpidevfinal2017.User;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.marwen.projetpidevfinal2017.User.Basket;
+import com.example.marwen.projetpidevfinal2017.ProfileActivity;
+import com.example.marwen.projetpidevfinal2017.R;
+import com.example.marwen.projetpidevfinal2017.Reclamation;
+import com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible;
+import com.example.marwen.projetpidevfinal2017.admin.ListMatdispo;
 
 public class MainActivity extends TabActivity {
     /**
      * Called when the activity is first created.
      */
-
+   TextView textView,textView1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+  /*      textView= (TextView) findViewById(R.id.well);
+        textView1= (TextView) findViewById(R.id.image);*/
         Resources res = getResources();
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
         TabHost.TabSpec spec; // Reusable TabSpec for each tab
@@ -26,13 +34,12 @@ public class MainActivity extends TabActivity {
 
         spec = tabHost.newTabSpec("home");
 
-        spec.setIndicator("",res.getDrawable(R.drawable.home));
-        intent = new Intent(this, ListMatdispo.class);
-        spec.setContent(intent);
-        tabHost.addTab(spec);
-
-
-        spec = tabHost.newTabSpec("Bascket");
+        spec.setIndicator("",res.getDrawable(R.drawable.home))
+            ;
+            intent = new Intent(this, ListMatdispo.class);
+            spec.setContent(intent);
+            tabHost.addTab(spec);
+        spec = tabHost.newTabSpec("Requests");
 
         spec.setIndicator("",res.getDrawable(R.drawable.basket));
         intent = new Intent(this, Basket.class);
@@ -44,11 +51,11 @@ public class MainActivity extends TabActivity {
         spec = tabHost.newTabSpec("Add Product");
         spec.setIndicator("",res.getDrawable(R.drawable.plus));
 
-        intent = new Intent(this, AddMatdisponible.class);
+        intent = new Intent(this, AjoutMatrielNonDispo.class);
         spec.setContent(intent);
         tabHost.addTab(spec);
 
-        spec = tabHost.newTabSpec("Mail");
+        spec = tabHost.newTabSpec("Reclamtion");
         spec.setIndicator("",res.getDrawable(R.drawable.mail));
 
         intent = new Intent(this, Reclamation.class);

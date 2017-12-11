@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.AddMatdisponible">
+    tools:context="com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible">
 
 
     <ImageView
@@ -114,6 +114,7 @@
         android:textSize="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
 
 
 </RelativeLayout>
