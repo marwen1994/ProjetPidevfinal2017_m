@@ -15,15 +15,15 @@ import java.util.List;
 import com.example.marwen.projetpidevfinal2017.R;
 
 public class Basket extends AppCompatActivity {
-    List<Matdispo> listm = new ArrayList<>() ;
-    SwipeMenuListView LIST ;
-    Matdispo m ;
+//    List<Matdispo> listm = new ArrayList<>() ;
+//    SwipeMenuListView LIST ;
+//    Matdispo m ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
-        LIST = (SwipeMenuListView) findViewById(R.id.list_Basket);
+     //   LIST = (SwipeMenuListView) findViewById(R.id.list_Basket);
 //            Intent i = getIntent();
 //
 //
