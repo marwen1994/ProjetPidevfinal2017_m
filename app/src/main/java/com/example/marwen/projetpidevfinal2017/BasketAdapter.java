@@ -24,60 +24,60 @@ public class BasketAdapter  extends BaseAdapter implements Filterable {
     private Activity activity;
     private Context mContext;
     private LayoutInflater inflater;
-    private List<Matdispo> movieItems=null;
-    private List<Matdispo> contactListFiltered=null;
+    private List<Matdispo> movieItems = null;
+    private List<Matdispo> contactListFiltered = null;
     private ItemFilter mFilter = new ItemFilter();
 
 
     public BasketAdapter(Activity activity, List<Matdispo> movieItems) {
         this.activity = activity;
         this.movieItems = movieItems;
-        this.contactListFiltered=movieItems;
+        this.contactListFiltered = movieItems;
         //mContext = context ;
-
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return contactListFiltered.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public Object getItem(int location) {
+        return contactListFiltered.get(location);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (inflater == null)
-            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null) convertView = inflater.inflate(R.layout.row_basket, null);
+            inflater = (LayoutInflater) activity
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (convertView == null)
+            convertView = inflater.inflate(R.layout.row_basket, null);
 
         //  imageLoader = AppController.getInstance().getImageLoader();
         TextView nom = (TextView) convertView.findViewById(R.id.nom_basket);
-        TextView categorie = (TextView) convertView.findViewById(R.id.qte);
+        TextView categorie = (TextView) convertView.findViewById(R.id.cat_basket);
         ImageView im = (ImageView) convertView.findViewById(R.id.im_basket);
 
-        // getting movie data for the row
+
         Matdispo m = contactListFiltered.get(position);
 
+        nom.setText(m.getName());
+        Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
 
-        // title
-         nom.setText(m.getName());
-        Toast.makeText(mContext, "gggggggggg", Toast.LENGTH_SHORT).show();
-         Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
-         categorie.setText(m.getQte()+"");
-         return convertView;
+        categorie.setText(m.getQte() + "");
+
+        return convertView;
     }
 
-    @Override
     public Filter getFilter() {
-        return mFilter ;
+        return mFilter;
     }
 
     private class ItemFilter extends Filter {
@@ -93,7 +93,7 @@ public class BasketAdapter  extends BaseAdapter implements Filterable {
             int count = list.size();
             final ArrayList<Matdispo> nlist = new ArrayList<Matdispo>(count);
 
-            Matdispo filterableString ;
+            Matdispo filterableString;
 
             for (int i = 0; i < count; i++) {
                 filterableString = list.get(i);
@@ -118,9 +118,6 @@ public class BasketAdapter  extends BaseAdapter implements Filterable {
     }
 
 }
-
-
-
 
 
 /////////////////////ITEM FILTER CLASSSS ///////////////////////////////////////////

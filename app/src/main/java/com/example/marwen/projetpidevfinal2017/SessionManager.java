@@ -85,7 +85,32 @@ public class SessionManager {
         // return user
         return user;
     }
+    public void setMatriel(String id,String nom,String qte,String description,String img){
 
+
+        editor.putString("id",id);
+        editor.putString("nom",nom);
+        editor.putString("qte",qte);
+        editor.putString("description",description);
+        editor.putString("img",img);
+
+        // commit changes
+        editor.commit();
+    }
+
+    public HashMap<String, String> getMatriel(){
+        HashMap<String, String> matriel = new HashMap<String, String>();
+
+        // user email id
+        matriel.put("id", pref.getString("id",null));
+        matriel.put("nom", pref.getString("nom",null));
+        matriel.put("qte", pref.getString("qte",null));
+        matriel.put("description", pref.getString("description",null));
+        matriel.put("img", pref.getString("img",null));
+
+        // return user
+        return matriel;
+    }
 
 
 

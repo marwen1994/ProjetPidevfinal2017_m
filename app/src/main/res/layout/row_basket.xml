@@ -1,70 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#ffffff"
     android:layout_marginTop="60dp"
-    android:background="@android:color/holo_purple"
-    android:orientation="horizontal"
-    android:weightSum="1"
-    tools:context="com.example.marwen.projetpidevfinal2017.Basket">
+    android:orientation="horizontal">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background"
+        app:cardElevation="5dp"
 
-    <ImageView
-        android:id="@+id/im_basket"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:transitionName="myImg"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="20dp"
-        android:layout_height="100dp"
-        android:layout_weight="0.46"
-        android:orientation="vertical"
-        android:paddingLeft="20dp">
-
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.99"
-            android:text="Equipement:"
-            android:textColor="@android:color/background_light"
-            android:textSize="20dp" />
+            android:layout_height="174dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Amount :"
-            android:textSize="20dp"
-            android:textColor="@android:color/background_light" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="20dp"
-        android:layout_height="100dp"
-        android:layout_weight="0.46"
-        android:orientation="vertical"
-        android:paddingLeft="20dp">
+            <ImageView
+                android:id="@+id/im_basket"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:srcCompat="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/nom_basket"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.99"
-            android:text="TextView"
-            android:textColor="@android:color/background_light" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="0.46"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
 
-        <TextView
-            android:id="@+id/qte"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textColor="@android:color/background_light" />
-    </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.99"
+                    android:text="Equipement:"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Amount :"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_basket"
+                android:layout_marginTop="21dp"
+                android:layout_toEndOf="@+id/linearLayout"
+                android:text="Equipement:"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView9"
+                android:layout_below="@+id/textView9"
+                android:text="Amount:"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/nom_basket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView9"
+                android:layout_marginStart="59dp"
+                android:layout_toEndOf="@+id/textView9"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/cat_basket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/nom_basket"
+                android:layout_alignTop="@+id/textView29"
+                android:text="TextView" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>

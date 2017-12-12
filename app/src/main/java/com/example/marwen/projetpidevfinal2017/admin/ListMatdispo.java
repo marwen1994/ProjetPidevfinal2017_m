@@ -115,6 +115,7 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
 
                         JSONObject jsa=js.getJSONObject(i);
                         m=new Matdispo();
+                        m.setId(Integer.parseInt(jsa.getString("id")));
                         m.setName(jsa.getString("name"));
                         m.setQte(Integer.parseInt(jsa.getString("qte")));
                         m.setDescription(jsa.getString("description"));
@@ -155,7 +156,8 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
              Intent intent = new Intent(ListMatdispo.this,Detail.class);
                Bundle bundle = new Bundle();
                bundle.putString("nom",m.getName());
-               Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
+             bundle.putInt("id",m.getId());
+             Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
                bundle.putInt("qte",m.getQte());
                bundle.putString("description",m.getDescription());
                bundle.putString("path",m.getImage_path());

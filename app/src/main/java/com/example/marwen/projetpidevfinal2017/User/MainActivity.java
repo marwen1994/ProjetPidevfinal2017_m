@@ -74,7 +74,7 @@ public class MainActivity extends TabActivity {
 
 
 
-        tabHost.setCurrentTab(1);
+        tabHost.setCurrentTab(2);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
