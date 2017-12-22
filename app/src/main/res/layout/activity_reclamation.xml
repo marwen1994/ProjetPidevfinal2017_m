@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bb_darkBackgroundColor"
+    android:weightSum="1"
     tools:context="com.example.marwen.projetpidevfinal2017.Reclamation">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentStart="true">
+
+
+
+        <EditText
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Subject"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/colorAccent" />
+
+        <EditText
+
+
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Body"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/colorAccent" />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="86dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/relativeLayout">
+<Button
+    android:id="@+id/send"
+    android:onClick="Send"
+    android:layout_width="192dp"
+    android:layout_height="50dp"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+    android:padding="16dp"
+    android:text="Envoyer"
+    android:textSize="16dp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="RECLAMATION"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

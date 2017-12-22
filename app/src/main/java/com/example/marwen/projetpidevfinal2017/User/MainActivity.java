@@ -14,6 +14,7 @@ import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.Reclamation;
 import com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible;
 import com.example.marwen.projetpidevfinal2017.admin.ListMatdispo;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends TabActivity {
     /**
@@ -25,6 +26,7 @@ public class MainActivity extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
   /*      textView= (TextView) findViewById(R.id.well);
         textView1= (TextView) findViewById(R.id.image);*/
         Resources res = getResources();

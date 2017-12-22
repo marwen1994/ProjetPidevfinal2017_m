@@ -22,8 +22,21 @@
         android:id="@+id/list_Basket"
         android:dividerHeight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/serach"
         android:layout_marginTop="16dp" />
+    <Button
+
+        android:text="Demander"
+        android:layout_width="192dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="16dp"
+        android:onClick="Demender"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/list_Basket"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

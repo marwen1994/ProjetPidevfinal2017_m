@@ -1,8 +1,11 @@
 package com.example.marwen.projetpidevfinal2017.admin;
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.marwen.projetpidevfinal2017.Mail;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
 import com.example.marwen.projetpidevfinal2017.User.Basket;
@@ -29,31 +33,34 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.mail.AuthenticationFailedException;
+import javax.mail.MessagingException;
+
 public class Detail extends AppCompatActivity {
     ImageView image;
-    TextView name , amount , description ;
-    int id ;
+    TextView name, amount, description;
+    int id;
     String url = "http://10.0.2.2/miniprojet/public/addBasket";
-    String imgpath ;
+    String imgpath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         image = (ImageView) findViewById(R.id.imgg);
-        name = (TextView)findViewById(R.id.name);
-        amount = (TextView)findViewById(R.id.amount);
+        name = (TextView) findViewById(R.id.name);
+        amount = (TextView) findViewById(R.id.amount);
 
         description = (TextView) findViewById(R.id.description);
         Intent i = getIntent();
         Bundle bundle = i.getExtras();
-       // image.setImageBitmap((Bitmap)bundle.getParcelable("image"));
+        // image.setImageBitmap((Bitmap)bundle.getParcelable("image"));
         Picasso.with(Detail.this).load(bundle.getString("path")).into(image);
-        id = bundle.getInt("id") ;
-        imgpath = bundle.getString("path") ;
+        id = bundle.getInt("id");
+        imgpath = bundle.getString("path");
         name.setText(bundle.getString("nom"));
-        amount.setText(bundle.getInt("qte")+"");
+        amount.setText(bundle.getInt("qte") + "");
         description.setText(bundle.getString("description"));
-
 
 
     }
@@ -105,5 +112,11 @@ public class Detail extends AppCompatActivity {
 
         queue.add(request);
 
+
     }
+
+//////////////////////////////////////////
+
 }
+
+

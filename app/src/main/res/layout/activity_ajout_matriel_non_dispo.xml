@@ -134,25 +134,25 @@
             android:background="#ADCCE2" />
 
 
-    <Button
-        android:id="@+id/ajouter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-   android:onClick="ajouter"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="28dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_weight="0.01"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Add"
-        android:background="@color/colorAccent"
-        android:textSize="16dp" />
+        <Button
+            android:id="@+id/ajouter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="0.01"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:onClick="ajouter"
+            android:padding="16dp"
+            android:text="Add"
+            android:textSize="16dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

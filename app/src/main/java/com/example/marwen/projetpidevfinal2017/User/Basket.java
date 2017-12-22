@@ -3,6 +3,7 @@ package com.example.marwen.projetpidevfinal2017.User;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
 import android.widget.Toast;
 
@@ -12,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.marwen.projetpidevfinal2017.BasketAdapter;
@@ -19,6 +21,7 @@ import com.example.marwen.projetpidevfinal2017.Matdispo;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
 import com.example.marwen.projetpidevfinal2017.admin.CustomListAdapter;
 import com.example.marwen.projetpidevfinal2017.admin.ListMatdispo;
+import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Register;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,7 +39,10 @@ public class Basket extends AppCompatActivity {
     List<Matdispo> listm = new ArrayList<>();
     SwipeMenuListView LIST;
     Matdispo m;
+    List<String> list= new ArrayList<>();
     String url = "http://10.0.2.2/miniprojet/public/getallbasket";
+    String url1 = "http://10.0.2.2/miniprojet/public/Demender";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +107,7 @@ public class Basket extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(Basket.this);
 
         queue.add(request);
-
+///////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -135,6 +141,53 @@ public class Basket extends AppCompatActivity {
     }
 
     public void testv() {
+
+    }
+
+    public void Demender(View view) {
+        StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    Boolean res = jsonObject.getBoolean("result");
+
+                    if (res) {
+                        Toast.makeText(Basket.this, res.toString()+"  Demende success", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> map = new HashMap<String, String>();
+                map.put("email",new SessionManager(getApplicationContext()).getUserDetail().get("email"));
+                map.put("groupname",new SessionManager(getApplicationContext()).getGroup().get("group"));
+/////à completer /////////////////
+                list.add(Integer.toString(m.getId()));
+               // map.put("listIDs",list);
+
+
+
+                return map;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+        queue.add(request);
 
     }
 }
