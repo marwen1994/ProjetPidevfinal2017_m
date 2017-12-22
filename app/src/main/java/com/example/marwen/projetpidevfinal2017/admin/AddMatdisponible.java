@@ -135,12 +135,11 @@ public class AddMatdisponible extends AppCompatActivity {
                 HashMap<String,String> HashMapParams = new HashMap<String,String>();
 
                 HashMapParams.put(ImageName,imagenamex);
-
                 HashMapParams.put(ImagePath, ConvertImage);
+                HashMapParams.put("image_name",imagenamex) ;
                 HashMapParams.put("name",namex) ;
                 HashMapParams.put("description",descrippx) ;
                 HashMapParams.put("qte",qte) ;
-                HashMapParams.put("image_name",imagenamex) ;
 
 
                 String FinalData = imageProcessClass.ImageHttpRequest(URL, HashMapParams);

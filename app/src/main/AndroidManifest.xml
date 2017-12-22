@@ -22,16 +22,18 @@
         <activity android:name=".loginRegisterreset.Reset" />
         <activity android:name=".loginRegisterreset.Confirm" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".User.MainActivity" />
+        <activity android:name=".admin.AddMatdisponible" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".User.AjoutMatrielNonDispo" />
-        <activity android:name=".admin.AddMatdisponible" />
         <activity android:name=".admin.ListMatdispo" />
+        <activity android:name=".User.MainActivity" />
         <activity android:name=".admin.Detail" />
         <activity android:name=".Reclamation" />
         <activity android:name=".User.Basket" />
         <activity android:name=".loginRegisterreset.AfterSplash" />
-        <activity android:name=".loginRegisterreset.SecondInscrip"></activity>
+        <activity android:name=".loginRegisterreset.SecondInscrip" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".admin.AdminMainActivity"></activity>
     </application>
 
 </manifest>

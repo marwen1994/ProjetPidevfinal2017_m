@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.marwen.projetpidevfinal2017.User.MainActivity;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
+import com.example.marwen.projetpidevfinal2017.admin.AdminMainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,24 +73,30 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if ((editText.getText().toString().equals("")) ) {
 
-                   textView2.setText("Champ Invalide");
+
+                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
                 }
                   else if (!(editText.getText().toString().isEmpty()) ) {
 
-                    textView2.setText("");
+                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
                 }
                if ((editText1.getText().toString().equals("")) ) {
-
-                    textView3.setText("Champ Invalide");
-
+                   Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
                 }
+                else if (editText.getText().toString().equals("marwen@admin.com")){
+
+
+                   Intent intent = new Intent(Login.this, AdminMainActivity.class);
+                   startActivity(intent);
+
+
+
+               }
 
                 else{
                    getall();
-                    textView3.setText(" ");
-                    textView2.setText(" ");
            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -100,12 +107,13 @@ public class Login extends AppCompatActivity {
 
                                         if (res.equals("true")){
                                             new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
-                                            Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
+                                            new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
+                                            Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(Login.this, MainActivity.class);
                                             startActivity(intent);
 
                                         } else {
-                                            Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
 
                                         }
@@ -148,8 +156,14 @@ public  void getall(){
 
             try {
                 JSONObject jsonObject = new JSONObject(response);
-                String res = jsonObject.getString("Groupename");
-                new SessionManager(getApplicationContext()).setGroup(res.toString());
+                String res = jsonObject.getString("name");
+                String res2 = jsonObject.getString("Groupename");
+
+                new SessionManager(getApplicationContext()).setGroup(res2.toString());
+                new SessionManager(getApplicationContext()).setName(res.toString());
+
+
+
                 Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
 
 

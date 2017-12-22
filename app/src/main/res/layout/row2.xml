@@ -5,95 +5,72 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:layout_marginTop="60dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    >
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/cardview_shadow_start_color"
+        app:cardBackgroundColor="@color/bb_inActiveBottomBarItemColor"
         app:cardElevation="5dp"
-
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="174dp">
+            android:layout_height="102dp">
 
 
             <ImageView
                 android:id="@+id/im"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="100dp"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 app:srcCompat="@mipmap/ic_launcher" />
-
-            <ImageView
-                android:id="@+id/im1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                app:srcCompat="@mipmap/ic_launcher_round" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="20dp"
-                android:layout_height="100dp"
-                android:layout_weight="0.46"
-                android:orientation="vertical"
-                android:paddingLeft="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.99"
-                    android:text="Equipement:"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Amount :"
-                    android:textSize="20dp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/im"
-                android:layout_marginTop="21dp"
-                android:layout_toEndOf="@+id/linearLayout"
-                android:text="Equipement:"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView9"
-                android:layout_below="@+id/textView9"
-                android:text="Amount:"
-                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/nom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textView9"
-                android:layout_marginStart="59dp"
-                android:layout_toEndOf="@+id/textView9"
-                android:text="TextView" />
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="35dp"
+                android:layout_toEndOf="@+id/im"
+                android:text="test"
+                android:textColor="#ADCCE2"
+
+
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/im"
                 android:layout_alignStart="@+id/nom"
-                android:layout_alignTop="@+id/textView29"
-                android:text="TextView" />
+                android:layout_marginBottom="18dp"
+                android:text="12"
+                android:textColor="#ADCCE2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_alignStart="@+id/nom"
+                android:layout_below="@+id/nom"
+                android:background="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_alignBottom="@+id/cat"
+                android:background="@color/colorAccent"
+                android:layout_alignStart="@+id/cat" />
+
+
         </RelativeLayout>
 
 

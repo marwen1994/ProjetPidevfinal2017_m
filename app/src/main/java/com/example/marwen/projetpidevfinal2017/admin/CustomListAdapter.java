@@ -63,15 +63,13 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
         TextView nom = (TextView) convertView.findViewById(R.id.nom);
         TextView categorie = (TextView) convertView.findViewById(R.id.cat);
         ImageView im = (ImageView) convertView.findViewById(R.id.im);
-        ImageView im1 = (ImageView) convertView.findViewById(R.id.im1);
 
 
          Matdispo m = contactListFiltered.get(position);
 
          nom.setText(m.getName());
          Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
-        Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im1);
-         categorie.setText(m.getQte()+"");
+         categorie.setText(m.getQte()+ "pieces");
 
         return convertView;
     }

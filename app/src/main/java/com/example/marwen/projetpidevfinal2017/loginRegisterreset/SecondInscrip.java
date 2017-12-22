@@ -56,7 +56,7 @@ public class SecondInscrip extends AppCompatActivity {
                                     startActivity(intent);
 
                                 } else {
-                                    Toast.makeText(SecondInscrip.this, "te7chaaaa", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SecondInscrip.this, "laaaa", Toast.LENGTH_SHORT).show();
 
                                 }
 

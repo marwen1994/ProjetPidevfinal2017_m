@@ -1,120 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible">
+    android:orientation="vertical"
+    android:background="@color/bb_darkBackgroundColor"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
 
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/foto"
-        android:layout_below="@+id/textView23"
-        android:layout_toEndOf="@+id/textView21"
-        android:layout_marginTop="12dp" />
+        <ImageView
+            android:id="@+id/imageView16"
+            android:onClick="uploadimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/images"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="85dp" />
 
-    <TextView
-        android:id="@+id/textView7"
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:text="Add A new Equipement !"
+            android:textColor="@color/colorAccent"
+            android:scrollbarSize="80dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Image name:"
-        android:layout_alignBottom="@+id/imagename"
-        android:layout_alignStart="@+id/textView23" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:text="Equipement Name:"
-        android:layout_below="@+id/textView7"
-        android:layout_toStartOf="@+id/description" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_below="@+id/textView16"
-        android:layout_marginTop="52dp"
-        android:text="Amount :" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description :
-"
-        android:layout_alignBottom="@+id/description"
-        android:layout_alignStart="@+id/textView20"
-        android:layout_marginBottom="30dp" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:onClick="uploadimg"
-        android:layout_below="@+id/description"
-        android:layout_alignStart="@+id/description" />
-
-    <EditText
-        android:id="@+id/imagename"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Image Name"
-        android:layout_below="@+id/imageView16"
-        android:layout_alignStart="@+id/name" />
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Equipement Name"
-        android:layout_alignBaseline="@+id/textView16"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_alignStart="@+id/button10" />
-
-    <EditText
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Amount"
-        android:layout_alignBaseline="@+id/textView20"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_alignStart="@+id/name" />
-
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="description"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/amount"
-        android:layout_alignEnd="@+id/textView23" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="Add A new Equipement !"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/imagename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Image Name"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
 
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
 
-</RelativeLayout>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Equipement Name"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+            android:background="#0000"
+            android:hint="Amount"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="35dp"
+
+            android:background="#0000"
+            android:hint="Description"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColor="#ADCCE2"
+            android:textColorHint="#ADCCE2"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="#ADCCE2" />
+
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="uploadimg"                  android:layout_alignParentBottom="true"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="0.01"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Add"
+            android:background="@color/colorAccent"
+            android:textSize="16dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

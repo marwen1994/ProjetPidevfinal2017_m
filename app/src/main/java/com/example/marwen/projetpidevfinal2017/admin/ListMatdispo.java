@@ -153,7 +153,7 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
          @Override
          public void onItemClick(AdapterView<?> adapterView, View viewx, int i, long l) {
              Matdispo m= (Matdispo) adapter.getItem(i);
-             Intent intent = new Intent(ListMatdispo.this,Detail.class);
+               Intent intent = new Intent(ListMatdispo.this,Detail.class);
                Bundle bundle = new Bundle();
                bundle.putString("nom",m.getName());
              bundle.putInt("id",m.getId());
@@ -170,6 +170,7 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
          }
      });
 
+/*
      SwipeMenuCreator creator = new SwipeMenuCreator() {
 
             @Override
@@ -178,8 +179,7 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
                 SwipeMenuItem openItem = new SwipeMenuItem(
                         ListMatdispo.this);
                 // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0x00, 0x66,
-                        0xff)));
+                openItem.setBackground(new ColorDrawable(Color.YELLOW));
                 // set item width
                 openItem.setWidth(500);
                 // set item title
@@ -187,7 +187,7 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
                 // set item title fontsize
                 openItem.setTitleSize(20);
                 // set item title font color
-                openItem.setTitleColor(Color.WHITE);
+                openItem.setTitleColor(Color.BLACK);
 
                 //openItem.setIcon();
                 // add to menu
@@ -197,14 +197,15 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
             }
         };
 // set creator
-        LIST.setMenuCreator(creator);
-LIST.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+         LIST.setMenuCreator(creator);
+         LIST.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
     @Override
     public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
         Toast.makeText(ListMatdispo.this, "This equipement is in your bascket", Toast.LENGTH_SHORT).show();
         return false;
     }
 });
+*/
 
 
 
