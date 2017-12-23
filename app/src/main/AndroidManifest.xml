@@ -33,7 +33,10 @@
         <activity android:name=".loginRegisterreset.AfterSplash" />
         <activity android:name=".loginRegisterreset.SecondInscrip" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".admin.AdminMainActivity"></activity>
+        <activity android:name=".admin.AdminMainActivity" />
+        <activity android:name=".admin.ListMatNondispo" />
+        <activity android:name=".admin.DeatailMatNonDispo" />
+        <activity android:name=".admin.WebView"></activity>
     </application>
 
 </manifest>

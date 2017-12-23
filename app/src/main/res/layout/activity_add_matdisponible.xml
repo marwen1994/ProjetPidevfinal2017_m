@@ -62,7 +62,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="#ADCCE2" />
+            android:background="@color/colorAccent" />
 
 
         <EditText
@@ -85,7 +85,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="#ADCCE2" />
+            android:background="@color/colorAccent" />
 
 
         <EditText
@@ -108,7 +108,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="#ADCCE2" />
+            android:background="@color/colorAccent" />
 
         <EditText
             android:id="@+id/description"
@@ -131,14 +131,14 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="#ADCCE2" />
+            android:background="@color/colorAccent" />
 
 
         <Button
             android:id="@+id/button10"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="uploadimg"                  android:layout_alignParentBottom="true"
+            android:onClick="uploadimg"                     android:layout_alignParentBottom="true"
             android:layout_marginBottom="28dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
