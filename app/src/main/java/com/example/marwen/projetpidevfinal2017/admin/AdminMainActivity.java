@@ -34,7 +34,7 @@ public class AdminMainActivity extends TabActivity {
         spec = tabHost.newTabSpec("Requests");
 
         spec.setIndicator("",res.getDrawable(R.drawable.basket));
-        intent = new Intent(this, Basket.class);
+        intent = new Intent(this, DemendeGrp.class);
         spec.setContent(intent);
         tabHost.addTab(spec);
 

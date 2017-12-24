@@ -33,7 +33,9 @@
         <activity android:name=".loginRegisterreset.AfterSplash" />
         <activity android:name=".loginRegisterreset.SecondInscrip" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".admin.AdminMainActivity"></activity>
+        <activity android:name=".admin.AdminMainActivity" />
+        <activity android:name=".admin.DemendeGrp" />
+        <activity android:name=".admin.demendes"/>
     </application>
 
 </manifest>

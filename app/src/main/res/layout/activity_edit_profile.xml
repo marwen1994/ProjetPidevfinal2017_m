@@ -219,7 +219,7 @@
         android:background="@android:color/black"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Cansel"
+        android:text="Cancel"
         android:textColorLink="@color/cardview_shadow_end_color"
         android:textSize="16dp" />
 

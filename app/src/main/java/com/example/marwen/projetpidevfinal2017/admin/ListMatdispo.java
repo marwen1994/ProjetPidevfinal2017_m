@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,7 +40,7 @@ import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 
 public class ListMatdispo extends AppCompatActivity {
- SwipeMenuListView LIST ;
+ ListView LIST ;
     EditText search;
     List<Matdispo> l= new ArrayList<>();
     Matdispo m;
@@ -51,7 +52,7 @@ public class ListMatdispo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_matdispo);
-        LIST = (SwipeMenuListView) findViewById(R.id.list);
+        LIST = (ListView) findViewById(R.id.list);
         search = (EditText) findViewById(R.id.serach);
 /////////////// RECH FILTRE
         search.addTextChangedListener(new TextWatcher() {
@@ -92,13 +93,6 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
         search.setText(s);
     }
 });
-
-
-
-
-
-
-
 
 
 
@@ -206,16 +200,6 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
     }
 });
 */
-
-
-
-
-
-
-
-
-
-
 
 
 

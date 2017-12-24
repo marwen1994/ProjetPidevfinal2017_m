@@ -1,0 +1,35 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp">
+
+        <Button
+            android:id="@+id/btn_ref"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorgreat"
+            android:onClick="refuser"
+            android:padding="0dp"
+            android:text="Refuser"
+            android:textColor="#ADCCE2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/btn_acc"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:onClick="accepter"
+            android:padding="0dp"
+            android:text="Accepter"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+</FrameLayout>

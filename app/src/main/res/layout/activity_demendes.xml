@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bb_darkBackgroundColor"
+    tools:context="com.example.marwen.projetpidevfinal2017.admin.demendes">
+
+    <EditText
+        android:id="@+id/serach_dem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:hint="Search Groupes"
+        android:inputType="textPersonName" />
+
+
+        <com.baoyz.swipemenulistview.SwipeMenuListView
+            android:id="@+id/list_dem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/serach_dem"
+            android:dividerHeight="10dp"
+            android:fastScrollEnabled="true"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scrollingCache="true"/>
+
+
+
+
+</LinearLayout>
