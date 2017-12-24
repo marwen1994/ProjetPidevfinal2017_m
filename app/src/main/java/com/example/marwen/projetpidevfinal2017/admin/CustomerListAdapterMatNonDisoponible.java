@@ -1,4 +1,5 @@
 package com.example.marwen.projetpidevfinal2017.admin;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,25 +11,27 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.example.marwen.projetpidevfinal2017.Matdispo;
+import com.example.marwen.projetpidevfinal2017.Matnondisponible;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomListAdapter extends BaseAdapter implements Filterable{
+/**
+ * Created by marwen on 22/12/2017.
+ */
+
+public class CustomerListAdapterMatNonDisoponible extends BaseAdapter implements Filterable {
     private Activity activity;
     private Context mContext;
     private LayoutInflater inflater;
-    private List<Matdispo> movieItems=null;
-    private List<Matdispo> contactListFiltered=null;
+    private List<Matnondisponible> movieItems=null;
+    private List<Matnondisponible> contactListFiltered=null;
     private ItemFilter mFilter = new ItemFilter();
 
-
-    public CustomListAdapter(Activity activity, List<Matdispo> movieItems) {
+    public CustomerListAdapterMatNonDisoponible(Activity activity, List<Matnondisponible> movieItems) {
         this.activity = activity;
         this.movieItems = movieItems;
         this.contactListFiltered=movieItems;
@@ -44,35 +47,33 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
     public Object getItem(int location) {return contactListFiltered.get(location);}
 
     @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public long getItemId(int position) {return position;}
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         if (inflater == null)
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.row2, null);
+            convertView = inflater.inflate(R.layout.rowmatnondisponible, null);
 
-      //  imageLoader = AppController.getInstance().getImageLoader();
-        TextView nom = (TextView) convertView.findViewById(R.id.nom);
-        TextView categorie = (TextView) convertView.findViewById(R.id.cat);
+        //  imageLoader = AppController.getInstance().getImageLoader();
+        TextView groupe = (TextView) convertView.findViewById(R.id.nom);
+        TextView name = (TextView) convertView.findViewById(R.id.cat);
         ImageView im = (ImageView) convertView.findViewById(R.id.im);
 
 
-         Matdispo m = contactListFiltered.get(position);
+        Matnondisponible m = contactListFiltered.get(position);
 
-         nom.setText(m.getName());
-         Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
-         categorie.setText(m.getQte()+ "pieces");
+        groupe.setText(m.getGroupename());
+        Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
+        name.setText(m.getName());
 
         return convertView;
     }
 
-public Filter getFilter() {
+
+    public Filter getFilter() {
         return mFilter;
     }
 
@@ -84,16 +85,16 @@ public Filter getFilter() {
 
             FilterResults results = new FilterResults();
 
-            final List<Matdispo> list = movieItems;
+            final List<Matnondisponible> list = movieItems;
 
             int count = list.size();
-            final ArrayList<Matdispo> nlist = new ArrayList<Matdispo>(count);
+            final ArrayList<Matnondisponible> nlist = new ArrayList<Matnondisponible>(count);
 
-            Matdispo filterableString ;
+            Matnondisponible filterableString ;
 
             for (int i = 0; i < count; i++) {
                 filterableString = list.get(i);
-                if (filterableString.getName().toLowerCase().contains(filterString.toString().toLowerCase()) || String.valueOf(filterableString.getQte()).toString().toLowerCase().contains(filterString.toString().toLowerCase())) {
+                if (filterableString.getName().toLowerCase().contains(filterString.toString().toLowerCase()) ||filterableString.getGroupename().toLowerCase().contains(filterString.toString().toLowerCase())) {
                     nlist.add(filterableString);
                 }
             }
@@ -107,22 +108,10 @@ public Filter getFilter() {
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            contactListFiltered = (ArrayList<Matdispo>) results.values;
+            contactListFiltered = (ArrayList<Matnondisponible>) results.values;
             notifyDataSetChanged();
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

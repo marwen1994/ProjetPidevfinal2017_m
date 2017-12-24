@@ -48,10 +48,10 @@ public class AdminMainActivity extends TabActivity {
         tabHost.addTab(spec);
 
 
-        spec = tabHost.newTabSpec("Add New Equipement");
+        spec = tabHost.newTabSpec("Requests of Equipement");
         spec.setIndicator("",res.getDrawable(R.drawable.demande));
 
-        intent = new Intent(this, AddMatdisponible.class);
+        intent = new Intent(this, ListMatNondispo.class);
         spec.setContent(intent);
         tabHost.addTab(spec);
 
