@@ -36,7 +36,8 @@
         <activity android:name=".admin.AdminMainActivity" />
         <activity android:name=".admin.ListMatNondispo" />
         <activity android:name=".admin.DeatailMatNonDispo" />
-        <activity android:name=".admin.WebView"></activity>
+        <activity android:name=".admin.WebView" />
+        <activity android:name=".admin.Listeusers" />
     </application>
 
 </manifest>

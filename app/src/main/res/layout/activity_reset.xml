@@ -4,71 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.Reset"
-    android:background="@drawable/teheme2">
+    tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.Register"
+    android:background="@drawable/rami">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/gmpl" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView6"
+        android:text="GMP"
+        android:textColor="@color/colorAccent"
+        android:textSize="80dp"
+        android:layout_above="@+id/textView28"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
-        android:text="Reset Password !"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white" />
+        android:layout_marginBottom="43dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Email !"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:layout_marginBottom="41dp"
+        android:layout_above="@+id/imageView11"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
+        android:id="@+id/imageView11"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/log"
+        app:srcCompat="@drawable/text1"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/button5" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:text="Reset"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:textColor="@android:color/white"
-        android:background="@drawable/btn"
-        android:layout_below="@+id/imageView7"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/next"
+        android:layout_below="@+id/imageView11"
+        android:layout_alignStart="@+id/imageView11"
+        android:layout_marginTop="33dp" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="53dp"
         android:text="Back To Login !"
+        android:textColor="@color/colorAccent"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/button5"
         android:layout_centerHorizontal="true" />
 
+
+
+
+
     <EditText
-        android:id="@+id/editText7"
-        android:layout_width="wrap_content"
+        android:id="@+id/email"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="  Email"
-        android:drawableLeft="@drawable/ic_shapes_2"
-        android:textColorHint="@android:color/white"
+        android:hint="Your Email"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/imageView11" />
 
 </RelativeLayout>

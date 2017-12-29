@@ -30,7 +30,7 @@ public class AddMatdisponible extends AppCompatActivity {
     ProgressDialog progressDialog ;
     Button Upload , add ;
     Bitmap bitmap ;
-    String URL ="http://10.0.2.2/miniprojet/public/setMatdispo" ;
+    String URL ="http://172.16.8.138/miniprojet/public/setMatdispo" ;
     String ImageName = "image_name" ;
     String ImagePath = "image_path" ;
     String imagenamex ;

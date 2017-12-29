@@ -26,6 +26,8 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.marwen.projetpidevfinal2017.Matdispo;
 import com.example.marwen.projetpidevfinal2017.R;
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,7 +48,7 @@ public class ListMatdispo extends AppCompatActivity {
     Matdispo m;
     SpinnerDialog  dialog ;
     CustomListAdapter adapter ;
-    String url = "http://10.0.2.2/Miniprojet/public/getalldispo";
+    String url = "http://172.16.8.138/Miniprojet/public/getalldispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,9 +157,6 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
                bundle.putString("description",m.getDescription());
                bundle.putString("path",m.getImage_path());
                Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
-
-             //  ImageView imageView = (ImageView) viewx.findViewById(R.id.im);
-              // bundle.putParcelable("image",((BitmapDrawable)imageView.getDrawable()).getBitmap());
                intent.putExtras(bundle);
                startActivity(intent);
          }

@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.AfterSplash"
-    android:background="@drawable/tec">
+    android:background="@drawable/rami">
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
         android:background="@drawable/text"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -37,11 +36,12 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="26dp"
         android:text="GMP"
         android:textColor="@color/colorAccent"
-        android:textSize="40dp" />
+        android:textSize="80dp"
+        android:textStyle=""
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

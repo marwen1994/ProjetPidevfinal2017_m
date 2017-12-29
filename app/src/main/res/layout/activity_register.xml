@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.marwen.projetpidevfinal2017.loginRegisterreset.Register"
-    android:background="@drawable/hh">
+    android:background="@drawable/rami">
 
 
     <TextView
@@ -14,19 +14,17 @@
         android:layout_height="wrap_content"
         android:text="GMP"
         android:textColor="@color/colorAccent"
-        android:textSize="40dp"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/textView28"
-        android:layout_centerHorizontal="true" />
+        android:textSize="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/textView28" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:text="Create Your Account !"
         android:textColor="@color/colorAccent"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_above="@+id/imageView10"
         android:layout_centerHorizontal="true" />
 
@@ -81,10 +79,9 @@
         android:textColor="@color/colorAccent"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="13dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView28"
-        android:layout_marginBottom="10dp" />
+        android:layout_centerHorizontal="true" />
 
 
 

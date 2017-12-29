@@ -8,6 +8,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.marwen.projetpidevfinal2017.EditProfile;
 import com.example.marwen.projetpidevfinal2017.User.Basket;
 import com.example.marwen.projetpidevfinal2017.ProfileActivity;
 import com.example.marwen.projetpidevfinal2017.R;
@@ -68,7 +69,7 @@ public class MainActivity extends TabActivity {
         spec = tabHost.newTabSpec("Profile");
         spec.setIndicator("",res.getDrawable(R.drawable.man));
 
-        intent = new Intent(this, ProfileActivity.class);
+        intent = new Intent(this, EditProfile.class);
         spec.setContent(intent);
         tabHost.addTab(spec);
 

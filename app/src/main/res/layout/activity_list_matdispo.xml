@@ -4,18 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    tools:context="com.example.marwen.projetpidevfinal2017.admin.ListMatdispo">
-
+    tools:context="com.example.marwen.projetpidevfinal2017.admin.ListMatdispo"
+    android:background="@android:color/black">
 
     <EditText
         android:id="@+id/serach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="   Search "
+        android:textColorHint="#080606"
+        android:textColor="#080606"
+        android:background="@android:color/white"
+         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
-
-    <ListView
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/search" />
+    <com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/list"
         android:dividerHeight="10dp"
         android:layout_width="match_parent"

@@ -40,7 +40,7 @@ public class Detail extends AppCompatActivity {
     ImageView image;
     TextView name, amount, description;
     int id;
-    String url = "http://10.0.2.2/miniprojet/public/addBasket";
+    String url = "http://172.16.8.138/miniprojet/public/addBasket";
     String imgpath;
 
     @Override
@@ -59,7 +59,7 @@ public class Detail extends AppCompatActivity {
         id = bundle.getInt("id");
         imgpath = bundle.getString("path");
         name.setText(bundle.getString("nom"));
-        amount.setText(bundle.getInt("qte") + "");
+        amount.setText(bundle.getInt("qte") +" "+"pieces");
         description.setText(bundle.getString("description"));
 
 
