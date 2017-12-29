@@ -135,6 +135,7 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
                 HashMapParams.put("prix",prixx) ;
                 HashMapParams.put("description",descripp) ;
                 HashMapParams.put("url",urlx) ;
+                HashMapParams.put("id_user",new SessionManager(AjoutMatrielNonDispo.this).getId().get("id"));
 
 
                 String FinalData = imageProcessClass.ImageHttpRequest(ServerUploadPath, HashMapParams);

@@ -14,26 +14,29 @@ public class Matnondisponible {
     private String name ;
     private String Groupename ;
     private String 	url ;
+    private String id_user ;
 
-    public Matnondisponible(int id, String image_path, String image_name, String description, int prix, String name, String groupename, String url) {
+    public Matnondisponible(int id, String image_path, String image_name, String description, int prix, String name, String groupename, String url, String id_user) {
         this.id = id;
         this.image_path = image_path;
         this.image_name = image_name;
         this.description = description;
         this.prix = prix;
         this.name = name;
-        this.Groupename = groupename;
+        Groupename = groupename;
         this.url = url;
+        this.id_user = id_user;
     }
 
-    public Matnondisponible(String image_path, String image_name, String description, int prix, String name, String groupename, String url) {
+    public Matnondisponible(String image_path, String image_name, String description, int prix, String name, String groupename, String url, String id_user) {
         this.image_path = image_path;
         this.image_name = image_name;
         this.description = description;
         this.prix = prix;
         this.name = name;
-        this.Groupename = groupename;
+        Groupename = groupename;
         this.url = url;
+        this.id_user = id_user;
     }
 
     public Matnondisponible() {
@@ -92,7 +95,7 @@ public class Matnondisponible {
     }
 
     public void setGroupename(String groupename) {
-        this.Groupename = groupename;
+        Groupename = groupename;
     }
 
     public String getUrl() {
@@ -101,5 +104,13 @@ public class Matnondisponible {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
     }
 }

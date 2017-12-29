@@ -28,12 +28,13 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.0'
 
-    compile 'com.roughike:bottom-bar:2.3.1'
-    compile 'com.mikhaellopez:circularimageview:2.0.1'
-    compile 'com.makeramen:roundedimageview:2.2.1'
+
     compile 'com.mikhaellopez:circularimageview:2.0.1'
     compile 'com.makeramen:roundedimageview:2.2.1'
     compile 'com.roughike:bottom-bar:2.3.1'
+    compile 'com.roughike:bottom-bar:2.3.1'
+    compile 'com.mikhaellopez:circularimageview:2.0.1'
+    compile 'com.makeramen:roundedimageview:2.2.1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
@@ -46,6 +47,10 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.sun.mail:android-mail:1.5.5'
     compile 'com.sun.mail:android-activation:1.5.5'
+    compile 'com.github.elevenetc:textsurface:0.9.1'
+    compile 'com.yalantis:contextmenu:1.0.7'
+    compile 'com.github.sd6352051:NiftyDialogEffects:v1.0.2'
+    compile 'com.android.support:support-v4:26.+'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

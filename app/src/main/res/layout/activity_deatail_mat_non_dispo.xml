@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context="com.example.marwen.projetpidevfinal2017.admin.Detail">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:background="@android:color/black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
@@ -43,13 +51,7 @@
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:background="@android:color/black"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            >
+
 
 
 
@@ -284,13 +286,12 @@
                         android:layout_height="wrap_content">
 
                         <Button
-                            android:id="@+id/refuser"
+                            android:id="@+id/accepter"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="3.38"
                             android:padding="12dp"
-                            android:onClick="accept"
                             android:text="Accept"
                             android:background="@color/colorAccent"
                             android:textColor="#050505"
@@ -298,13 +299,13 @@
                             android:textStyle="bold" />
 
                         <Button
-                            android:id="@+id/accepter"
+                            android:id="@+id/refuser"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="3.38"
                             android:padding="12dp"
-                            android:onClick="refuse"
+
                             android:text="Refuse"
                             android:background="@android:color/black"
                             android:textColor="#FFFDFDFB"
@@ -318,12 +319,12 @@
 
 
 
-        </android.support.v4.widget.NestedScrollView>
+
 
 
 
     </android.support.design.widget.AppBarLayout>
 
-
+</android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -41,14 +41,14 @@ public class ListMatNondispo extends AppCompatActivity {
     EditText search;
     SpinnerDialog dialog ;
     CustomerListAdapterMatNonDisoponible adapter ;
-    String url = "http://10.0.2.2/Miniprojet/public/getallnondispo";
+    String url = "http://172.16.8.138/Miniprojet/public/getallnondispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_mat_nondispo);
         LIST = (SwipeMenuListView) findViewById(R.id.list);
-        search = (EditText) findViewById(R.id.serach);
+        search = (EditText) findViewById(R.id.se);
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -108,6 +108,7 @@ public class ListMatNondispo extends AppCompatActivity {
                         m.setDescription(jsa.getString("description"));
                         m.setGroupename(jsa.getString("Groupename"));
                         m.setUrl(jsa.getString("url"));
+                        m.setId_user(jsa.getString("id_user"));
 
 
                         l.add(m);
@@ -153,8 +154,9 @@ public class ListMatNondispo extends AppCompatActivity {
                 bundle.putString("path",m.getImage_path());
                 bundle.putString("Group",m.getGroupename());
                 bundle.putString("url",m.getUrl());
+                bundle.putString("id_user",m.getId_user());
 
-                Toast.makeText(ListMatNondispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListMatNondispo.this,m.getId_user(), Toast.LENGTH_SHORT).show();
 
                 intent.putExtras(bundle);
                 startActivity(intent);

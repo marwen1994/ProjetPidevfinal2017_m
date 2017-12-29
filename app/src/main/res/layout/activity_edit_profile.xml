@@ -4,37 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bb_darkBackgroundColor"
+    android:id="@+id/rlv"
+    android:background="@android:color/black"
     android:weightSum="1">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/backg4">
+        android:layout_height="97dp">
 
         <com.alexzh.circleimageview.CircleImageView
             android:id="@+id/circleview"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/marwen"
-            app:view_borderColor="#cccccc"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
+            android:layout_marginLeft="120dp"
+            android:layout_marginStart="22dp"
             android:onClick="up"
-           />
+            android:src="@drawable/images"
+            app:view_borderColor="#cccccc"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true" />
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/plus"
-            android:src="@drawable/plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView20"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="27dp"
+            android:onClick="upload"
+            android:src="@drawable/plus"
             app:elevation="6dp"
-            app:pressedTranslationZ="12dp"
             app:layout_anchor="@id/app_bar_layout"
             app:layout_anchorGravity="bottom|right|end"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="upload"
-            />
+            app:pressedTranslationZ="12dp" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Press To Add Photo"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/plus"
+            android:layout_toEndOf="@+id/circleview"
+            android:layout_marginTop="11dp" />
 
     </RelativeLayout>
 
@@ -44,14 +59,17 @@
         <TextView
             android:layout_width="192dp"
             android:layout_height="50dp"
-            android:background="@color/colorAccent"
+            android:background="@android:color/white"
             android:gravity="center"
             android:padding="16dp"
             android:text="Profile  Details"
-            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#080606"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true" />
 
 
     </RelativeLayout>
@@ -64,7 +82,7 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="0dp"
-        android:layout_weight="0.97">
+        android:layout_weight="0.06">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -86,8 +104,8 @@
             android:hint="username"
             android:inputType="text"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="18dp" />
 
 
@@ -96,7 +114,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
         <TextView
             android:id="@+id/mail"
@@ -109,8 +127,8 @@
             android:hint="email"
             android:inputType="text"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="16dp" />
 
 
@@ -119,7 +137,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
         <TextView
 
@@ -133,8 +151,8 @@
             android:hint="Group Name"
             android:inputType="text"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="16dp" />
 
 
@@ -143,7 +161,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
         <TextView
             android:id="@+id/pass"
@@ -156,8 +174,8 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="16dp" />
 
 
@@ -166,7 +184,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
         <EditText
             android:id="@+id/newpass"
@@ -178,50 +196,41 @@
             android:background="#0000"
             android:hint="New Password"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="16dp"
             />
 
 
         <View
+            android:id="@+id/del"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
  </LinearLayout>
         </LinearLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="86dp">
-    <Button
-        android:id="@+id/update"
-        android:layout_width="192dp"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Update"
-        android:textSize="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
 
-    <Button
-        android:id="@+id/cancel"
-        android:textColor="#ADCCE2"
-        android:layout_width="192dp"
-        android:onClick="cansel"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/black"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Cansel"
-        android:textColorLink="@color/cardview_shadow_end_color"
-        android:textSize="16dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/update"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Update"
+            android:textColor="#080606"
+            android:textSize="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
 </LinearLayout>

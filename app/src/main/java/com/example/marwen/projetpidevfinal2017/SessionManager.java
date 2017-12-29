@@ -64,6 +64,24 @@ public class SessionManager {
         // return user
         return user;
     }
+    public void setId(String id){
+
+
+        editor.putString("id",id);
+
+        // commit changes
+        editor.commit();
+    }
+
+    public HashMap<String, String> getId(){
+        HashMap<String, String> user = new HashMap<String, String>();
+
+        // user email id
+        user.put("id", pref.getString("id",null));
+
+        // return user
+        return user;
+    }
 
 
 

@@ -1,16 +1,21 @@
 package com.example.marwen.projetpidevfinal2017;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,17 +32,28 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.marwen.projetpidevfinal2017.User.MainActivity;
+import com.example.marwen.projetpidevfinal2017.admin.AdminMainActivity;
+import com.example.marwen.projetpidevfinal2017.admin.Listeusers;
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Login;
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.SecondInscrip;
 import com.squareup.picasso.Picasso;
+import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
+import com.yalantis.contextmenu.lib.MenuObject;
+import com.yalantis.contextmenu.lib.MenuParams;
+import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener;
+import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 
 public class EditProfile extends AppCompatActivity {
     FloatingActionButton but;
@@ -45,21 +61,28 @@ public class EditProfile extends AppCompatActivity {
     EditText conf;
     View v;
     String ImageName = "image_name" ;
-
+    FragmentManager fragmentManager;
+    private ContextMenuDialogFragment mMenuDialogFragment;
     String ImagePath = "image_path" ;
     Bitmap bitmap;
     TextView name,mail,group,pass;
+    View view;
     Button button1,button2;
-    String url = "http://10.0.2.2/miniprojet/public/updatePwdMail";
-    String ServerUploadPath ="http://10.0.2.2/miniprojet/public/setimg" ;
-    String url2 = "http://10.0.2.2/miniprojet/public/getimg" ;
+    String url = "http://172.16.8.138/miniprojet/public/updatePwdMail";
+    String ServerUploadPath ="http://172.16.8.138/miniprojet/public/setimg" ;
+    String url2 = "http://172.16.8.138/miniprojet/public/getimg" ;
     ProgressDialog progressDialog ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-
         checkpic();
+
+
+        initMenuFragment();
+        fragmentManager=getSupportFragmentManager();
+
+
         image= (CircleImageView) findViewById(R.id.circleview);
         name= (TextView) findViewById(R.id.name);
         mail= (TextView) findViewById(R.id.mail);
@@ -67,7 +90,7 @@ public class EditProfile extends AppCompatActivity {
         pass= (TextView) findViewById(R.id.pass);
         conf=(EditText)findViewById(R.id.newpass);
         button1=(Button)findViewById(R.id.update);
-        button2=(Button)findViewById(R.id.cancel);
+
         but=(FloatingActionButton) findViewById(R.id.plus);
 
         name.setText(new SessionManager(EditProfile.this).getName().get("name"));
@@ -125,6 +148,112 @@ public class EditProfile extends AppCompatActivity {
 
 
     }
+
+    private void initMenuFragment() {
+        MenuParams menuParams = new MenuParams();
+        menuParams.setActionBarSize((int) getResources().getDimension(R.dimen.tool_bar_height));
+        menuParams.setMenuObjects(getMenuObjects());
+        menuParams.setClosableOutside(false);
+        mMenuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams);
+        mMenuDialogFragment.setItemClickListener(new OnMenuItemClickListener() {
+            @Override
+            public void onMenuItemClick(View clickedView, int position) {
+
+                if(position==1){
+
+                    final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(EditProfile.this);
+                    dialogBuilder
+                            .withTitle("Are You Sure To Logout\n")
+                            .withTitleColor("#080606")
+                            .withDividerColor("#11000000")
+                            .withMessageColor("#FFFFFFFF")
+                            .withDialogColor("#080606")
+                            .withIcon(getResources().getDrawable(R.drawable.success))
+                            .withDuration(700)
+                            .withEffect(RotateBottom)
+                            .withButton1Text("yes")
+                            .withButton2Text("Cancel")
+                            .isCancelableOnTouchOutside(true)
+                            .setButton1Click(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    new SessionManager(getApplicationContext()).setLogin(false);
+                                    Intent intent = new Intent(EditProfile.this,Login.class);
+                                    startActivity(intent);
+
+                                }
+                            })
+                            .setButton2Click(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialogBuilder.dismiss();
+                                }
+                            })
+                            .show();
+
+
+
+                }
+
+
+            }
+        });
+        mMenuDialogFragment.setItemLongClickListener(new OnMenuItemLongClickListener() {
+            @Override
+            public void onMenuItemLongClick(View clickedView, int position) {
+
+            }
+        });
+    }
+
+    private List<MenuObject> getMenuObjects() {
+
+
+        List<MenuObject> menuObjects = new ArrayList<>();
+
+        MenuObject close = new MenuObject("Cancel");
+        close.setResource(R.drawable.error);
+
+        MenuObject logout = new MenuObject("Logout");
+        logout.setResource(R.drawable.powerbutton);
+
+
+
+        menuObjects.add(close);
+        menuObjects.add(logout);
+        return menuObjects;
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.context_menu:
+                if (fragmentManager.findFragmentByTag(ContextMenuDialogFragment.TAG) == null) {
+                    mMenuDialogFragment.show(fragmentManager, ContextMenuDialogFragment.TAG);
+                }
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mMenuDialogFragment != null && mMenuDialogFragment.isAdded()) {
+            mMenuDialogFragment.dismiss();
+        } else {
+            finish();
+        }
+    }
+
     @Override
     protected void onActivityResult(int RC, int RQC, Intent I) {
 
@@ -146,6 +275,7 @@ public class EditProfile extends AppCompatActivity {
             }
         }
     }
+
 
     public void ImageUploadToServerFunction(){
 
@@ -275,4 +405,7 @@ public class EditProfile extends AppCompatActivity {
     public void upload(View view) {
         ImageUploadToServerFunction() ;
     }
+
+
+
 }

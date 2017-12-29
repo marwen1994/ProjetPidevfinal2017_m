@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -24,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +39,10 @@ public class ProfileActivity extends AppCompatActivity {
 EditText editText,editText1;
     Button button,button1,button2,button3;
     ImageView imageView,imageView1,imageView2,profileimg;
+
+
+
+
     View v;
     Bitmap bitmap;
     ProgressDialog progressDialog ;
