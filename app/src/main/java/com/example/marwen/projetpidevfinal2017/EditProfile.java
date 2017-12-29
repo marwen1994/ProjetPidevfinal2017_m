@@ -1,7 +1,6 @@
 package com.example.marwen.projetpidevfinal2017;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -32,10 +31,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.marwen.projetpidevfinal2017.User.MainActivity;
-import com.example.marwen.projetpidevfinal2017.admin.AdminMainActivity;
-import com.example.marwen.projetpidevfinal2017.admin.Listeusers;
+
+
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Login;
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.SecondInscrip;
+
+
+import com.gitonway.lee.niftymodaldialogeffects.lib.*;
+import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
+import com.gitonway.lee.niftymodaldialogeffects.lib.effects.RotateBottom;
 import com.squareup.picasso.Picasso;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
@@ -52,8 +56,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 
 public class EditProfile extends AppCompatActivity {
     FloatingActionButton but;
@@ -170,7 +172,7 @@ public class EditProfile extends AppCompatActivity {
                             .withDialogColor("#080606")
                             .withIcon(getResources().getDrawable(R.drawable.success))
                             .withDuration(700)
-                            .withEffect(RotateBottom)
+                            .withEffect(Effectstype.RotateBottom)
                             .withButton1Text("yes")
                             .withButton2Text("Cancel")
                             .isCancelableOnTouchOutside(true)

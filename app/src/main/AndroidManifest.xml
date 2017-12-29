@@ -23,6 +23,8 @@
         <activity android:name=".loginRegisterreset.Confirm" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".admin.AddMatdisponible" />
+        <activity android:name=".admin.demendes" />
+        <activity android:name=".admin.DemendeGrp" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".User.AjoutMatrielNonDispo" />
         <activity android:name=".admin.ListMatdispo" />

@@ -32,8 +32,8 @@ public class Login extends AppCompatActivity {
     EditText editText, editText1;
     TextView textView, textView1,textView2,textView3;
     Button button;
-    String url = "http://172.16.8.138/miniprojet/public/checkUser";
-    String url1 = "http://172.16.8.138/miniprojet/public/getUserByEmail";
+    String url = "http://10.0.2.2/miniprojet/public/checkUser";
+    String url1 = "http://10.0.2.2/miniprojet/public/getUserByEmail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +45,7 @@ public class Login extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView2);
         textView1 = (TextView) findViewById(R.id.textView3);
         textView2 = (TextView) findViewById(R.id.textView4);
-if(new SessionManager(getApplicationContext()).isLoggedIn()){
-    Intent intent = new Intent(Login.this, MainActivity.class);
-    startActivity(intent);
 
-}
 
         textView3 = (TextView) findViewById(R.id.textView5);
 
@@ -82,126 +78,125 @@ if(new SessionManager(getApplicationContext()).isLoggedIn()){
                     Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
                 }
-                else if (!(editText.getText().toString().isEmpty()) ) {
+                  else if (!(editText.getText().toString().isEmpty()) ) {
 
                     Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
                 }
-                if ((editText1.getText().toString().equals("")) ) {
-                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
+               if ((editText1.getText().toString().equals("")) ) {
+                   Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
                 }
                 else if (editText.getText().toString().equals("marwen@admin.com")){
 
-                    FirebaseMessaging.getInstance().subscribeToTopic("admin");
+                   FirebaseMessaging.getInstance().subscribeToTopic("admin");
 
-                    Intent intent = new Intent(Login.this, AdminMainActivity.class);
-                    startActivity(intent);
+                   Intent intent = new Intent(Login.this, AdminMainActivity.class);
+                   startActivity(intent);
 
 
 
-                }
+               }
 
                 else{
-                    getall();
-                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
+                   getall();
+           StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
 
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                String res = jsonObject.getString("result");
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        String res = jsonObject.getString("result");
 
-                                if (res.equals("true")){
-                                    new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
-                                    new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
-                                    Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
-                                    //subscribing to notification
-                                    String id =  new SessionManager(getApplication()).getId().get("id") ;
-                                    FirebaseMessaging.getInstance().subscribeToTopic(id);
-                                    new SessionManager(getApplicationContext()).setLogin(true);
-                                    Intent intent = new Intent(Login.this, MainActivity.class);
-                                    startActivity(intent);
+                                        if (res.equals("true")){
+                                            new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
+                                            new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
+                                            Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
+                                            //subscribing to notification
+                                           String id =  new SessionManager(getApplication()).getId().get("id") ;
+                                            FirebaseMessaging.getInstance().subscribeToTopic(id);
+                                            Intent intent = new Intent(Login.this, MainActivity.class);
+                                            startActivity(intent);
 
-                                } else {
-                                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
-
-
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                                        } else {
+                                            Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
 
 
+                                        }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> map = new HashMap<String, String>();
-                            map.put("email", editText.getText().toString().trim());
-                            map.put("password", editText1.getText().toString().trim());
-                            return map;
-                        }
-                    };
-                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-                    queue.add(request);
 
-                }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> map = new HashMap<String, String>();
+                        map.put("email", editText.getText().toString().trim());
+                        map.put("password", editText1.getText().toString().trim());
+                        return map;
+                    }
+                };
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+                queue.add(request);
+
+}
             }
         });
 
     }
 
-    public  void getall(){
+public  void getall(){
 
-        StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+    StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
 
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String res = jsonObject.getString("name");
-                    String res2 = jsonObject.getString("Groupename");
-                    String id = jsonObject.getString("id") ;
-                    new SessionManager(getApplicationContext()).setGroup(res2.toString());
-                    new SessionManager(getApplicationContext()).setName(res.toString());
-                    new SessionManager(getApplication()).setId(id);
-
-
-                    Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String res = jsonObject.getString("name");
+                String res2 = jsonObject.getString("Groupename");
+                String id = jsonObject.getString("id") ;
+                new SessionManager(getApplicationContext()).setGroup(res2.toString());
+                new SessionManager(getApplicationContext()).setName(res.toString());
+                new SessionManager(getApplication()).setId(id);
 
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
 
 
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> map = new HashMap<String, String>();
-                map.put("email", editText.getText().toString().trim());
-                //map.put("password", editText1.getText().toString().trim());
-                return map;
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-        queue.add(request);
 
-    }
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            error.printStackTrace();
+        }
+    }) {
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("email", editText.getText().toString().trim());
+            //map.put("password", editText1.getText().toString().trim());
+            return map;
+        }
+    };
+    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+    queue.add(request);
+
+}
 
 
 

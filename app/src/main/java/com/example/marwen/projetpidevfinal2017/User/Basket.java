@@ -37,18 +37,21 @@ import org.json.JSONObject;
 
 public class Basket extends AppCompatActivity {
     List<Matdispo> listm = new ArrayList<>();
+    List<Matdispo> lista = new ArrayList<>();
+
     SwipeMenuListView LIST;
     Matdispo m;
     List<String> list= new ArrayList<>();
     String url = "http://10.0.2.2/miniprojet/public/getallbasket";
-    String url1 = "http://10.0.2.2/miniprojet/public/Demender";
-
+    String url1 = "http://10.0.2.2/miniprojet/public/Demenderandroid";
+    String email ;
+    String user_email ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
         LIST = (SwipeMenuListView) findViewById(R.id.list_Basket);
-
+        user_email = new SessionManager(getApplicationContext()).getUserDetail().get("email") ;
 ////////////////////////////////////////////////////////
     }
 
@@ -59,7 +62,9 @@ public class Basket extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-
+        listm.clear();
+        BasketAdapter adapter = new BasketAdapter(Basket.this, listm);
+        LIST.setAdapter(adapter);
 
 
         /////////////////////////////////////////////////////////////////////////////
@@ -74,15 +79,26 @@ public class Basket extends AppCompatActivity {
                     for(int i=0;i<js.length();i++) {
 
                         JSONObject jsa=js.getJSONObject(i);
+
                         m=new Matdispo();
                         m.setId(Integer.parseInt(jsa.getString("id")));
                         m.setName(jsa.getString("name"));
+                        email = jsa.getString("email") ;
                         m.setQte(Integer.parseInt(jsa.getString("qte")));
                         m.setDescription(jsa.getString("description"));
-                        m.setImage_path(jsa.getString("image_path"));
-                        listm.add(m);
-                    }
+                        m.setImage_path(jsa.getString("image_path")) ;
+                        //
+                        if (email.equals(user_email))
+                            {
+                                listm.add(m);
+                            }
+
+
+                        }
+
                     Toast.makeText(Basket.this, m.getName(), Toast.LENGTH_SHORT).show();
+
+
                     BasketAdapter adapter = new BasketAdapter(Basket.this, listm);
                     LIST.setAdapter(adapter);
 
@@ -145,18 +161,23 @@ public class Basket extends AppCompatActivity {
     }
 
     public void Demender(View view) {
+
+
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Boolean res = jsonObject.getBoolean("result");
-
-                    if (res) {
-                        Toast.makeText(Basket.this, res.toString()+"  Demende success", Toast.LENGTH_SHORT).show();
-
-                    }
+                    Toast.makeText(Basket.this, jsonObject+"", Toast.LENGTH_LONG).show();
+//                    Boolean res = jsonObject.getBoolean("result");
+//
+//                    if (res) {
+//                        Toast.makeText(Basket.this, res.toString()+"  Demende success", Toast.LENGTH_SHORT).show();
+//
+//                    }else {
+//                        Toast.makeText(Basket.this, res.toString(), Toast.LENGTH_SHORT).show();
+//                    }
 
 
                 } catch (JSONException e) {
@@ -174,10 +195,16 @@ public class Basket extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<String, String>();
+                for (int i = 0; i < listm.size(); i++) {
+
+                    map.put(i+"", listm.get(i).getId()+"");
+                }
+                map.put("size",listm.size()+"") ;
                 map.put("email",new SessionManager(getApplicationContext()).getUserDetail().get("email"));
                 map.put("groupname",new SessionManager(getApplicationContext()).getGroup().get("group"));
 /////à completer /////////////////
-                list.add(Integer.toString(m.getId()));
+
+                //list.add(Integer.toString(m.getId()));
                // map.put("listIDs",list);
 
 

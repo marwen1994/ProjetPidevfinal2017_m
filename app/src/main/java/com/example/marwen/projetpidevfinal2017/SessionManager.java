@@ -103,6 +103,8 @@ public class SessionManager {
         // return user
         return user;
     }
+
+
     public void setMatriel(String id,String nom,String qte,String description,String img){
 
 

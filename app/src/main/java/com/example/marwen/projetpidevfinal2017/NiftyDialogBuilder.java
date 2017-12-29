@@ -109,7 +109,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
     public static NiftyDialogBuilder getInstance(Context context) {
 
         if (instance == null || !tmpContext.equals(context)) {
-            synchronized (com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder.class) {
+            synchronized (NiftyDialogBuilder.class) {
                 if (instance == null || !tmpContext.equals(context)) {
                     instance = new NiftyDialogBuilder(context,R.style.dialog_untran);
                 }
@@ -122,7 +122,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
     private void init(Context context) {
 
-        mDialogView = View.inflate(context, com.gitonway.lee.niftymodaldialogeffects.lib.R.layout.dialog_layout, null);
+        mDialogView = View.inflate(context,R.layout.dialog_layout, null);
 
         mLinearLayoutView = (LinearLayout) mDialogView.findViewById(R.id.parentPanel);
         mRelativeLayoutView = (RelativeLayout) mDialogView.findViewById(R.id.main);

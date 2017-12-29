@@ -66,7 +66,7 @@ public class Detail extends AppCompatActivity {
     }
 
     public void AddToBasket(View view) {
-        Toast.makeText(this, "ADD", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "ADD", Toast.LENGTH_SHORT).show();
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -105,6 +105,8 @@ public class Detail extends AppCompatActivity {
                 map.put("name", name.getText().toString().trim());
                 map.put("qte", amount.getText().toString().trim());
                 map.put("description", description.getText().toString().trim());
+                String mail = new SessionManager(getApplicationContext()).getUserDetail().get("email") ;
+                map.put("email",mail) ;
                 return map;
             }
         };
