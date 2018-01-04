@@ -41,11 +41,11 @@ public class demendes extends AppCompatActivity {
     Matdispo m;
     List<Matdispo> list = new ArrayList<>();
     String Grp;
-    String url = "http://10.0.2.2/miniprojet/public/getdemByGroup";
-    String url1 = "http://10.0.2.2/miniprojet/public/getMatByIDAndroid";
-    String url2 = "http://10.0.2.2/miniprojet/public/getUserByEmail";
-    String url3 = "http://10.0.2.2/miniprojet/public/sendnotifById";
-    String url4 = "http://10.0.2.2/miniprojet/public/setqte";
+    String url = "http://192.168.0.121/miniprojet/public/getdemByGroup";
+    String url1 = "http://192.168.0.121/miniprojet/public/getMatByIDAndroid";
+    String url2 = "http://192.168.0.121/miniprojet/public/getUserByEmail";
+    String url3 = "http://192.168.0.121/miniprojet/public/sendnotifById";
+    String url4 = "http://192.168.0.121/miniprojet/public/setqte";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class demendes extends AppCompatActivity {
         setContentView(R.layout.activity_demendes);
         LIST = (SwipeMenuListView) findViewById(R.id.list_dem);
         FrameLayout footerLayout = (FrameLayout) getLayoutInflater().inflate(R.layout.contact_footer_view, null);
-        /*Button Accp = (Button) footerLayout.findViewById(R.id.btn_acc);
-        Button ref = (Button) footerLayout.findViewById(R.id.btn_ref);*/
+       Button Accp = (Button) footerLayout.findViewById(R.id.btn_acc);
+        Button ref = (Button) footerLayout.findViewById(R.id.btn_ref);
         LIST.addFooterView(footerLayout);
 
         Intent i = getIntent();
@@ -89,8 +89,6 @@ public class demendes extends AppCompatActivity {
 
                             try {
                                 JSONObject js = new JSONObject(response);
-
-                                Toast.makeText(demendes.this, js.toString(), Toast.LENGTH_SHORT).show();
                                 System.out.println(js.toString());
                                 for (int i = 1; i <= js.length(); i++) {
 
@@ -103,7 +101,6 @@ public class demendes extends AppCompatActivity {
                                     m.setImage_path(jsa.getString("image_path"));
                                     list.add(m);
                                 }
-                                Toast.makeText(demendes.this, "AAAAAAAAAAAAA", Toast.LENGTH_LONG).show();
                                 DemAdapter adapter = new DemAdapter(demendes.this, list);
                                 LIST.setAdapter(adapter);
                             } catch (JSONException e) {

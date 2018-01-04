@@ -56,5 +56,6 @@ dependencies {
     compile 'com.github.sd6352051:NiftyDialogEffects:v1.0.2'
     compile 'com.android.support:support-v4:26.+'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.Binary-Finery:FabToast:1.0'
 }
 apply plugin: 'com.google.gms.google-services'

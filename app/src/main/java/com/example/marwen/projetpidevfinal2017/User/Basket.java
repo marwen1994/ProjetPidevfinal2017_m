@@ -42,8 +42,8 @@ public class Basket extends AppCompatActivity {
     SwipeMenuListView LIST;
     Matdispo m;
     List<String> list= new ArrayList<>();
-    String url = "http://10.0.2.2/miniprojet/public/getallbasket";
-    String url1 = "http://10.0.2.2/miniprojet/public/Demenderandroid";
+    String url = "http://192.168.0.121/miniprojet/public/getallbasket";
+    String url1 = "http://192.168.0.121/miniprojet/public/Demenderandroid";
     String email ;
     String user_email ;
     @Override
@@ -123,36 +123,6 @@ public class Basket extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(Basket.this);
 
         queue.add(request);
-///////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-//        HashMap<String, String> matriel = new HashMap<String, String>();
-//        matriel = new SessionManager(getApplicationContext()).getMatriel();
-//        if (!matriel.isEmpty()) {
-//            //int id = Integer.parseInt(matriel.get("id"));
-//            String imagepath = matriel.get("img");
-//            String name = matriel.get("nom");
-//            // int amount = Integer.parseInt(matriel.get("qte"));
-//            String description = matriel.get("description");
-//            Toast.makeText(this, description, Toast.LENGTH_SHORT).show();
-//            m = new Matdispo();
-//            //  m.setId(id);
-//            m.setName(name);
-//               Toast.makeText(this, m.getName(), Toast.LENGTH_SHORT).show();
-//            m.setQte(14);
-//            m.setDescription(description);
-//            m.setImage_path(imagepath);
-//
-//            listm.add(m);
-//
-//            BasketAdapter adapter = new BasketAdapter(Basket.this, listm);
-//            LIST.setAdapter(adapter);
-       // }
 
     }
 
@@ -215,6 +185,10 @@ public class Basket extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         queue.add(request);
+
+    }
+    @Override
+    public void onBackPressed() {
 
     }
 }

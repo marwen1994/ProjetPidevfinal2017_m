@@ -16,21 +16,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.marwen.projetpidevfinal2017.EditProfile;
 import com.example.marwen.projetpidevfinal2017.HomeActivity;
 import com.example.marwen.projetpidevfinal2017.ImageProcessClass;
 import com.example.marwen.projetpidevfinal2017.R;
+import com.example.marwen.projetpidevfinal2017.User.AjoutMatrielNonDispo;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
+
+import spencerstudios.com.fab_toast.FabToast;
 
 public class AddMatdisponible extends AppCompatActivity {
     ImageView imageView ;
     EditText imagename , name , quantite , description ;
     ProgressDialog progressDialog ;
     Button Upload , add ;
-    Bitmap bitmap ;
-    String URL ="http://172.16.8.138/miniprojet/public/setMatdispo" ;
+    Bitmap bitmap = null ;
+    String URL ="http://192.168.0.121/miniprojet/public/setMatdispo" ;
     String ImageName = "image_name" ;
     String ImagePath = "image_path" ;
     String imagenamex ;
@@ -109,6 +113,7 @@ public class AddMatdisponible extends AppCompatActivity {
                 super.onPreExecute();
 
                 progressDialog = ProgressDialog.show(AddMatdisponible.this,"Image is Uploading","Please Wait",false,false);
+
             }
 
             @Override
@@ -120,7 +125,6 @@ public class AddMatdisponible extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 // Printing uploading success message coming from server on android app.
-                Toast.makeText(AddMatdisponible.this,string1,Toast.LENGTH_LONG).show();
                 Log.d("tag",string1) ;
                 // Setting image as transparent after done uploading.
                 imageView.setImageResource(android.R.color.transparent);
@@ -135,7 +139,7 @@ public class AddMatdisponible extends AppCompatActivity {
                 HashMap<String,String> HashMapParams = new HashMap<String,String>();
 
                 HashMapParams.put(ImageName,imagenamex);
-                HashMapParams.put(ImagePath, ConvertImage);
+                HashMapParams.put("image_data", ConvertImage);
                 HashMapParams.put("image_name",imagenamex) ;
                 HashMapParams.put("name",namex) ;
                 HashMapParams.put("description",descrippx) ;
@@ -159,9 +163,42 @@ public class AddMatdisponible extends AppCompatActivity {
         qte = String.valueOf(quantite.getText());
         descrippx = String.valueOf(description.getText()) ;
 
+        if (bitmap == null) {
+            FabToast.makeText(AddMatdisponible.this, "Please Choose Photo" , FabToast.LENGTH_LONG, FabToast.WARNING, FabToast.POSITION_DEFAULT).show();
+        }
+      else if((imagename.equals(""))){
+            FabToast.makeText(getApplicationContext(),"Invalid Impout", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
+
+        }
+        else if ((namex.equals(""))){
+
+            FabToast.makeText(getApplicationContext(),"Invalid Impout", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
+        }
+
+     /*   else if (!(qte.toString().equals("[0-9]*"))){
+
+            FabToast.makeText(getApplicationContext(),"Inter Price Number", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+        }*/
+
+        else if ((description.toString().equals(""))){
+            FabToast.makeText(getApplicationContext(), "Invalid Impout", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+
+        }
+else {
 
 
      ImageUploadToServerFunction ();
+            Intent intent = new Intent(AddMatdisponible.this,AdminMainActivity.class);
+            startActivity(intent);
+            FabToast.makeText(getApplicationContext(), "Your Equipement was added", FabToast.LENGTH_SHORT, FabToast.SUCCESS,  FabToast.POSITION_DEFAULT).show();
+
+        }
+
+    }
+    @Override
+    public void onBackPressed() {
 
     }
 }

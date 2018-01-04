@@ -28,12 +28,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import spencerstudios.com.fab_toast.FabToast;
+
 public class Login extends AppCompatActivity {
     EditText editText, editText1;
     TextView textView, textView1,textView2,textView3;
     Button button;
-    String url = "http://10.0.2.2/miniprojet/public/checkUser";
-    String url1 = "http://10.0.2.2/miniprojet/public/getUserByEmail";
+    String url = "http://192.168.0.121/miniprojet/public/checkUser";
+    String url1 = "http://192.168.0.121/miniprojet/public/getUserByEmail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +62,8 @@ public class Login extends AppCompatActivity {
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-      /*  Intent intent = new Intent(Login.this, Register.class);
-                startActivity(intent);*/
+        Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
 
 
 
@@ -72,82 +74,69 @@ public class Login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((editText.getText().toString().equals("")) ) {
+                if ((editText.getText().toString().equals(""))&& (editText1.getText().toString().equals("")) ) {
 
 
-                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
-
-                }
-                  else if (!(editText.getText().toString().isEmpty()) ) {
-
-                    Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
+                    FabToast.makeText(Login.this, "Check Your Email Or Password", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
 
                 }
-               if ((editText1.getText().toString().equals("")) ) {
-                   Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
-                }
-                else if (editText.getText().toString().equals("marwen@admin.com")){
-
-                   FirebaseMessaging.getInstance().subscribeToTopic("admin");
-
-                   Intent intent = new Intent(Login.this, AdminMainActivity.class);
-                   startActivity(intent);
 
 
+else{
+                    getall();
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
-               }
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                String res = jsonObject.getString("result");
 
-                else{
-                   getall();
-           StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
+                                if (res.equals("true")) {
+                                    new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
+                                    new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
+                                    FabToast.makeText(Login.this, "Wellcome" + editText.getText(), FabToast.LENGTH_LONG, FabToast.SUCCESS, FabToast.POSITION_DEFAULT).show();
+                                    //subscribing to notification
+                                    String id = new SessionManager(getApplication()).getId().get("id");
+                                    FirebaseMessaging.getInstance().subscribeToTopic(id);
+                                    if ((editText.getText().toString().equals("marwen@admin.com"))) {
+                                        Intent intent = new Intent(Login.this, AdminMainActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Intent intent = new Intent(Login.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }
 
-                                    try {
-                                        JSONObject jsonObject = new JSONObject(response);
-                                        String res = jsonObject.getString("result");
+                                } else {
+                                    FabToast.makeText(Login.this, "Cheak Your Email Or Password", FabToast.LENGTH_SHORT, FabToast.ERROR, FabToast.POSITION_DEFAULT).show();
 
-                                        if (res.equals("true")){
-                                            new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
-                                            new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
-                                            Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
-                                            //subscribing to notification
-                                           String id =  new SessionManager(getApplication()).getId().get("id") ;
-                                            FirebaseMessaging.getInstance().subscribeToTopic(id);
-                                            Intent intent = new Intent(Login.this, MainActivity.class);
-                                            startActivity(intent);
+                                }
 
-                                        } else {
-                                            Toast.makeText(Login.this,"Invalide Login", Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
 
 
-                                        }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> map = new HashMap<String, String>();
+                            map.put("email", editText.getText().toString().trim());
+                            map.put("password", editText1.getText().toString().trim());
+                            return map;
+                        }
+                    };
+                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
+                    queue.add(request);
+                }
 
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> map = new HashMap<String, String>();
-                        map.put("email", editText.getText().toString().trim());
-                        map.put("password", editText1.getText().toString().trim());
-                        return map;
-                    }
-                };
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-
-                queue.add(request);
-
-}
             }
         });
 
@@ -164,13 +153,11 @@ public  void getall(){
                 String res = jsonObject.getString("name");
                 String res2 = jsonObject.getString("Groupename");
                 String id = jsonObject.getString("id") ;
+                String status = jsonObject.getString("status");
                 new SessionManager(getApplicationContext()).setGroup(res2.toString());
                 new SessionManager(getApplicationContext()).setName(res.toString());
                 new SessionManager(getApplication()).setId(id);
-
-
-                Toast.makeText(Login.this, res.toString(), Toast.LENGTH_SHORT).show();
-
+                new SessionManager(getApplication()).setStatus(status);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -198,10 +185,10 @@ public  void getall(){
 
 }
 
+    @Override
+    public void onBackPressed() {
 
-
-
-
+    }
 }
 
 

@@ -3,6 +3,7 @@ package com.example.marwen.projetpidevfinal2017.User;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ import com.example.marwen.projetpidevfinal2017.Reclamation;
 import com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible;
 import com.example.marwen.projetpidevfinal2017.admin.ListMatdispo;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import spencerstudios.com.fab_toast.FabToast;
 
 public class MainActivity extends TabActivity {
     /**
@@ -31,7 +34,7 @@ public class MainActivity extends TabActivity {
   /*      textView= (TextView) findViewById(R.id.well);
         textView1= (TextView) findViewById(R.id.image);*/
         Resources res = getResources();
-        TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
+        final TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
         TabHost.TabSpec spec; // Reusable TabSpec for each tab
         Intent intent; // Reusable Intent for each tab
 
@@ -77,12 +80,17 @@ public class MainActivity extends TabActivity {
 
 
 
-        tabHost.setCurrentTab(2);
+        tabHost.setCurrentTab(0);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                // display the name of the tab whenever a tab is changed
-                Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+                FabToast.makeText(getApplicationContext(), tabId, FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+                for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
+                {
+                    tabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.color.cardview_light_background);
+                }
+
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.YELLOW);
             }
         });
 

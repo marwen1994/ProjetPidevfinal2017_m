@@ -10,22 +10,23 @@
 
         <Button
             android:id="@+id/btn_ref"
-            android:layout_width="192dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:background="@color/colorgreat"
             android:onClick="refuser"
             android:padding="0dp"
             android:text="Refuser"
-            android:textColor="#ADCCE2"
+            android:textColor="#FFFFFFFF"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true" />
 
         <Button
             android:id="@+id/btn_acc"
-            android:layout_width="192dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:onClick="accepter"
+            android:textColor="#080606"
             android:padding="0dp"
             android:text="Accepter"
             android:layout_alignParentBottom="true"

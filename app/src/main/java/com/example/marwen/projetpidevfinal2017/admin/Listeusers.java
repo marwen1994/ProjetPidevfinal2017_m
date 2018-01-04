@@ -24,6 +24,7 @@ import com.example.marwen.projetpidevfinal2017.EditProfile;
 import com.example.marwen.projetpidevfinal2017.NiftyDialogBuilder;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
+import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Login;
 
 
 import org.json.JSONArray;
@@ -37,6 +38,7 @@ import java.util.Map;
 
 import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
+import spencerstudios.com.fab_toast.FabToast;
 
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 
@@ -48,8 +50,8 @@ public class Listeusers extends AppCompatActivity {
     User m;
     SpinnerDialog dialog ;
     CustomerListAdapterUsers adapter ;
-    String url = "http://172.16.8.138/Miniprojet/public/getallusers";
-    String url1 ="http://172.16.8.138/Miniprojet/public/updatestatus";
+    String url = "http://192.168.0.121/Miniprojet/public/getallusers";
+    String url1 ="http://192.168.0.121/Miniprojet/public/updatestatus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,7 @@ public class Listeusers extends AppCompatActivity {
         });
 
 /////////////rech SPINER
-        ArrayList<String> l1 = getlistnom();
+/*        ArrayList<String> l1 = getlistnom();
 
         dialog = new SpinnerDialog(Listeusers.this,l1,"Select Item");
         search.setOnLongClickListener(new View.OnLongClickListener() {
@@ -88,14 +90,14 @@ public class Listeusers extends AppCompatActivity {
 
                 return false;
             }
-        });
+        });*/
 
-        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
+    /*    dialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
             public void onClick(String s, int i) {
                 search.setText(s);
             }
-        });
+        });*/
 
 ////////////////////////////// setonlongclick
         LIST.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -109,7 +111,7 @@ public class Listeusers extends AppCompatActivity {
                             .withDividerColor("#11000000")
                             .withMessageColor("#FFFFFFFF")
                             .withDialogColor("#080606")
-                            .withIcon(getResources().getDrawable(R.drawable.success))
+                           // .withIcon(getResources().getDrawable(R.drawable.success))
                             .withDuration(700)
                             .withEffect(RotateBottom)
                             .withButton1Text("OK")
@@ -128,7 +130,8 @@ public class Listeusers extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     if(user.getStatus().toString().equals("1")){
-                                        Toast.makeText(Listeusers.this, "he is already a group leader", Toast.LENGTH_SHORT).show();
+                                        FabToast.makeText(Listeusers.this, "He Is A Team Leader", FabToast.LENGTH_SHORT, FabToast.WARNING,  FabToast.POSITION_DEFAULT).show();
+                                        dialogBuilder.dismiss();
                                     }
                                     else {
                                         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
@@ -141,11 +144,12 @@ public class Listeusers extends AppCompatActivity {
 
                                                     if (res.equals("true")) {
 
-                                                        Toast.makeText(Listeusers.this, res.toString(), Toast.LENGTH_SHORT).show();
+                                                        FabToast.makeText(Listeusers.this, "He was added As team Leader", FabToast.LENGTH_SHORT, FabToast.SUCCESS,  FabToast.POSITION_DEFAULT).show();
+                                                        dialogBuilder.dismiss();
 
 
                                                     } else {
-                                                        Toast.makeText(Listeusers.this, res.toString(), Toast.LENGTH_SHORT).show();
+                                                        FabToast.makeText(Listeusers.this, "Error", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
 
 
                                                     }
@@ -281,5 +285,9 @@ public class Listeusers extends AppCompatActivity {
         queue.add(request);
 
         return (ArrayList<String>) lx;
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

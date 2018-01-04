@@ -19,24 +19,26 @@ import android.widget.Toast;
 import com.example.marwen.projetpidevfinal2017.ImageProcessClass;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
+import com.example.marwen.projetpidevfinal2017.admin.AddMatdisponible;
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.SecondInscrip;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
+import spencerstudios.com.fab_toast.FabToast;
 
 
 public class AjoutMatrielNonDispo extends AppCompatActivity {
     EditText grpname,name,prix,description,url;
     ImageView matnonimg ;
     Button ajouter ;
-    Bitmap bitmap;
+    Bitmap bitmap = null;
     ProgressDialog progressDialog ;
     String ImageName = "image_name" ;
     String ImagePath = "image_path" ;
     String imgname ;
-    String ServerUploadPath ="http://10.0.2.2/miniprojet/public/setMat" ;
+    String ServerUploadPath ="http://192.168.0.121/miniprojet/public/setMat" ;
     String groupname ;
     String prixx ;
     String descripp ;
@@ -112,7 +114,7 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 // Printing uploading success message coming from server on android app.
-                Toast.makeText(AjoutMatrielNonDispo.this,string1,Toast.LENGTH_LONG).show();
+
                 Log.d("tag",string1) ;
                 // Setting image as transparent after done uploading.
                 matnonimg.setImageResource(android.R.color.transparent);
@@ -163,10 +165,43 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
         prixx = String.valueOf(prix.getText()) ;
         descripp = String.valueOf(description.getText());
         urlx = String.valueOf(url.getText());
-        ImageUploadToServerFunction() ;
-        Toast.makeText(this, "Your Request HAS BEEN sent SHEACK YOUR BASKET", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(AjoutMatrielNonDispo.this,MainActivity.class);
-        startActivity(intent);
+        if (bitmap == null) {
+            FabToast.makeText(AjoutMatrielNonDispo.this, "Please Choose Photo" , FabToast.LENGTH_LONG, FabToast.WARNING, FabToast.POSITION_DEFAULT).show();
+        }
+        else if((imgname.equals(""))){
+            FabToast.makeText(getApplicationContext(),"Invalid Impout", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
+
+        }
+
+     /*   else if (!(prixx.toString().equals("[0-9]*"))){
+
+            FabToast.makeText(getApplicationContext(),"Inter Price Number", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+        }*/
+
+        else if ((descripp.toString().equals(""))){
+            FabToast.makeText(getApplicationContext(), "Invalid Impout", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+
+        }
+        else if ((urlx.toString().equals(""))){
+            FabToast.makeText(getApplicationContext(), "Invalid Impout", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+
+        }
+
+
+        else {
+
+            ImageUploadToServerFunction();
+            FabToast.makeText(getApplicationContext(), "Your Request HAS BEEN sent", FabToast.LENGTH_SHORT, FabToast.SUCCESS,  FabToast.POSITION_DEFAULT).show();
+            Intent intent = new Intent(AjoutMatrielNonDispo.this, MainActivity.class);
+            startActivity(intent);
+        }
+
+    }
+    @Override
+    public void onBackPressed() {
 
     }
 }

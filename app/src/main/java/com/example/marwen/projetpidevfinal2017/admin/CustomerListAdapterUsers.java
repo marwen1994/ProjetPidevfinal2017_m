@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexzh.circleimageview.CircleImageView;
 import com.example.marwen.projetpidevfinal2017.Matdispo;
 import com.example.marwen.projetpidevfinal2017.Matnondisponible;
 import com.example.marwen.projetpidevfinal2017.R;
@@ -61,7 +62,7 @@ public class CustomerListAdapterUsers extends BaseAdapter implements Filterable 
         //  imageLoader = AppController.getInstance().getImageLoader();
         TextView groupe = (TextView) convertView.findViewById(R.id.email);
         TextView name = (TextView) convertView.findViewById(R.id.gr);
-        ImageView im = (ImageView) convertView.findViewById(R.id.im);
+        CircleImageView im = (CircleImageView) convertView.findViewById(R.id.im);
 
 
 

@@ -84,6 +84,21 @@ public class SessionManager {
     }
 
 
+    public void setStatus(String status){
+
+
+        editor.putString("status",status);
+
+        editor.commit();
+    }
+
+    public HashMap<String, String> getStatus(){
+        HashMap<String, String> user = new HashMap<String, String>();
+        user.put("status", pref.getString("status",null));
+        return user;
+    }
+
+
 
     public void setGroup(String group){
 

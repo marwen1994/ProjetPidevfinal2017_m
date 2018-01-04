@@ -4,7 +4,7 @@
     <item
         android:id="@+id/context_menu"
         android:title="context menu"
-        android:icon="@drawable/seo"
+        android:icon="@drawable/logout"
         android:orderInCategory="100"
         app:showAsAction="always" />
 

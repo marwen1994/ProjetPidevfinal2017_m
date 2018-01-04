@@ -8,8 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Login;
+
 import javax.mail.AuthenticationFailedException;
 import javax.mail.MessagingException;
+
+import spencerstudios.com.fab_toast.FabToast;
 
 public class Reclamation extends AppCompatActivity {
     String emailadrs ;
@@ -22,7 +26,7 @@ public class Reclamation extends AppCompatActivity {
         setContentView(R.layout.activity_reclamation);
 
 
-        emailadrs = new SessionManager(getApplicationContext()).getUserDetail().get("email");
+        emailadrs = "maw@admin.com" ; //new SessionManager(getApplicationContext()).getUserDetail().get("email");
         subject = (EditText) findViewById(R.id.subject);
         body = (EditText) findViewById(R.id.body);
 
@@ -41,6 +45,7 @@ public class Reclamation extends AppCompatActivity {
         email.m.set_to(recipients);
         email.m.set_subject(subject.getText().toString());
         email.execute();
+        FabToast.makeText(getApplicationContext(), "Check ", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
 
     }
 
@@ -62,8 +67,11 @@ class SendEmailAsyncTask extends AsyncTask<Void, Void, Boolean> {
         try {
             if (m.send()) {
                 activity.displayMessage("Email sent.");
+                FabToast.makeText(activity, "Check this ", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
+
             } else {
                 activity.displayMessage("Email failed to send.");
+                FabToast.makeText(activity, "Check ", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
             }
 
             return true;
@@ -76,6 +84,7 @@ class SendEmailAsyncTask extends AsyncTask<Void, Void, Boolean> {
             Log.e(SendEmailAsyncTask.class.getName(), "Email failed");
             e.printStackTrace();
             activity.displayMessage("Email failed to send.");
+            FabToast.makeText(activity, "Check ", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
             return false;
         } catch (Exception e) {
             e.printStackTrace();

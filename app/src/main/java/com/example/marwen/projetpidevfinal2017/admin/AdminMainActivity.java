@@ -31,6 +31,8 @@ import com.yalantis.contextmenu.lib.interfaces.OnMenuItemLongClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import spencerstudios.com.fab_toast.FabToast;
+
 public class AdminMainActivity extends TabActivity  {
 
     @Override
@@ -98,7 +100,8 @@ public class AdminMainActivity extends TabActivity  {
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                Toast.makeText(getApplicationContext(), tabId, Toast.LENGTH_SHORT).show();
+
+                FabToast.makeText(getApplicationContext(), tabId, FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
                 for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
                 {
                     tabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.color.cardview_light_background);
@@ -122,7 +125,5 @@ public class AdminMainActivity extends TabActivity  {
         return super.onOptionsItemSelected(item);
     }
 */
-
-
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bb_darkBackgroundColor"
+    android:background="@android:color/black"
     android:weightSum="1"
     tools:context="com.example.marwen.projetpidevfinal2017.Reclamation">
 
@@ -13,11 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+     android:layout_marginTop="34dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="0dp"
-        android:layout_marginBottom="22dp"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/textView31"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
 
 
 
@@ -31,8 +32,8 @@
             android:hint="Subject"
             android:inputType="text"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             android:textSize="16dp" />
 
 
@@ -41,7 +42,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
         <EditText
 
@@ -55,8 +56,8 @@
             android:hint="Body"
             android:inputType="text"
             android:padding="16dp"
-            android:textColor="#ADCCE2"
-            android:textColorHint="#ADCCE2"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             android:textSize="16sp" />
 
 
@@ -65,7 +66,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@color/colorAccent" />
+            android:background="@android:color/white" />
 
 
 
@@ -78,21 +79,23 @@
 <RelativeLayout
 android:layout_width="match_parent"
 android:layout_height="86dp"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true"
-    android:id="@+id/relativeLayout">
+    android:id="@+id/relativeLayout"
+    android:layout_below="@+id/linearLayout2"
+    android:layout_alignParentStart="true">
 <Button
     android:id="@+id/send"
     android:onClick="Send"
-    android:layout_width="192dp"
+    android:layout_width="300dp"
     android:layout_height="50dp"
     android:background="@color/colorAccent"
     android:gravity="center"
+    android:textColor="#080606"
     android:padding="16dp"
     android:text="Envoyer"
     android:textSize="16dp"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true" />
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="19dp" />
 
 </RelativeLayout>
 
@@ -100,13 +103,13 @@ android:layout_height="86dp"
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        android:text="RECLAMATION"
+        android:layout_marginTop="27dp"
+        android:text="SEND YOUR CLAIM"
         android:textColor="@color/colorAccent"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

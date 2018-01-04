@@ -27,7 +27,7 @@ import java.util.Map;
 public class SecondInscrip extends AppCompatActivity {
     EditText group , mail,mail1,mail2;
     Button go ;
-    String url = "http://172.16.8.138/miniprojet/public/storeUser";
+    String url = "http://192.168.0.121/miniprojet/public/storeUser";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

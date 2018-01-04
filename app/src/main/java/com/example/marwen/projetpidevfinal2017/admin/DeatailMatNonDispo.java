@@ -37,8 +37,8 @@ public class DeatailMatNonDispo extends AppCompatActivity {
     int id;
     String imgpath;
     Button url;
-    String url1="http://172.16.8.138/miniprojet/public/sendAccepmatnondispo";
-    String url2="http://172.16.8.138/miniprojet/public/sendRefusematnondispo";
+    String url1="http://192.168.0.121/miniprojet/public/sendnotifById";
+    String url2="http://192.168.0.121/miniprojet/public/sendnotifById";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class DeatailMatNonDispo extends AppCompatActivity {
         groupe.setText(bundle.getString("Group"));
         url.setText(bundle.getString("url"));
        final String id_user = bundle.getString("id_user");
-        Toast.makeText(this, id_user, Toast.LENGTH_SHORT).show();
+
 
 
         accept.setOnClickListener(new View.OnClickListener() {
@@ -99,9 +99,8 @@ public class DeatailMatNonDispo extends AppCompatActivity {
                         Map<String, String> map = new HashMap<String, String>();
 
                         map.put("id", id_user);
-
-
-                        return map;
+                        map.put("body","your request for unavailable material has been Accepted");
+                      return map;
                     }
 
                 };
@@ -147,6 +146,7 @@ public class DeatailMatNonDispo extends AppCompatActivity {
                      Map<String, String> map = new HashMap<String, String>();
 
                      map.put("id", id_user);
+                     map.put("body", "Your Request For Unavailable Equipement Has been refused");
 
 
                      return map;

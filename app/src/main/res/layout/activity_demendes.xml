@@ -5,26 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bb_darkBackgroundColor"
+    android:background="@android:color/black"
     tools:context="com.example.marwen.projetpidevfinal2017.admin.demendes">
 
-    <EditText
-        android:id="@+id/serach_dem"
+    <TextView
+        android:id="@+id/serach_grp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:text="                         Equipement  "
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#080606"
+        android:background="@android:color/white"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false"
-        android:hint="Search Groupes"
-        android:inputType="textPersonName" />
+        android:layout_alignParentEnd="true" />
 
 
-        <com.baoyz.swipemenulistview.SwipeMenuListView
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
             android:id="@+id/list_dem"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/serach_dem"
+        android:layout_marginTop="10dp"
             android:dividerHeight="10dp"
             android:fastScrollEnabled="true"
             android:footerDividersEnabled="true"

@@ -41,7 +41,7 @@ public class ListMatNondispo extends AppCompatActivity {
     EditText search;
     SpinnerDialog dialog ;
     CustomerListAdapterMatNonDisoponible adapter ;
-    String url = "http://172.16.8.138/Miniprojet/public/getallnondispo";
+    String url = "http://192.168.0.121/Miniprojet/public/getallnondispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class ListMatNondispo extends AppCompatActivity {
             }
         });
 
-
+/*
         ArrayList<String> l1 = getlistnom();
 
         dialog = new SpinnerDialog(ListMatNondispo.this,l1,"Select Item");
@@ -79,15 +79,15 @@ public class ListMatNondispo extends AppCompatActivity {
 
                 return false;
             }
-        });
+        });*/
 
-        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
+       /* dialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
             public void onClick(String s, int i) {
                 search.setText(s);
             }
         });
-
+*/
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
             @Override
@@ -148,16 +148,12 @@ public class ListMatNondispo extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("nom",m.getName());
                 bundle.putInt("id",m.getId());
-                Toast.makeText(ListMatNondispo.this,m.getName(), Toast.LENGTH_SHORT).show();
                 bundle.putInt("prix",m.getPrix());
                 bundle.putString("description",m.getDescription());
                 bundle.putString("path",m.getImage_path());
                 bundle.putString("Group",m.getGroupename());
                 bundle.putString("url",m.getUrl());
                 bundle.putString("id_user",m.getId_user());
-
-                Toast.makeText(ListMatNondispo.this,m.getId_user(), Toast.LENGTH_SHORT).show();
-
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -204,5 +200,9 @@ public class ListMatNondispo extends AppCompatActivity {
         queue.add(request);
 
         return (ArrayList<String>) lx;
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

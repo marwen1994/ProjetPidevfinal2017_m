@@ -30,7 +30,7 @@ public class DemendeGrp extends AppCompatActivity {
     SwipeMenuListView LIST;
     DemGrpAdapter adapter ;
     List<String> list= new ArrayList<>();
-    String url = "http://10.0.2.2/miniprojet/public/getalldem";
+    String url = "http://192.168.0.121/miniprojet/public/getalldem";
     //String url1 = "http://10.0.2.2/miniprojet/public/Demender";
 
     @Override
@@ -91,7 +91,6 @@ public class DemendeGrp extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View viewx, int i, long l) {
                 String m= (String) adapterView.getItemAtPosition(i) ; //parent.getItemAtPosition(i);
-                Toast.makeText(DemendeGrp.this, m, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DemendeGrp.this,demendes.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("grp",m.trim());
@@ -99,5 +98,9 @@ public class DemendeGrp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }

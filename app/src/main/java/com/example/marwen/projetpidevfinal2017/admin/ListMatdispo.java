@@ -24,8 +24,10 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.example.marwen.projetpidevfinal2017.BasketAdapter;
 import com.example.marwen.projetpidevfinal2017.Matdispo;
 import com.example.marwen.projetpidevfinal2017.R;
+import com.example.marwen.projetpidevfinal2017.User.Basket;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
 
@@ -47,8 +49,8 @@ public class ListMatdispo extends AppCompatActivity {
     List<Matdispo> l= new ArrayList<>();
     Matdispo m;
     SpinnerDialog  dialog ;
-    CustomListAdapter adapter ;
-    String url = "http://172.16.8.138/Miniprojet/public/getalldispo";
+   CustomListAdapter adapter ;
+    String url = "http://192.168.0.121/Miniprojet/public/getalldispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class ListMatdispo extends AppCompatActivity {
             }
         });
 
-/////////////rech SPINER
+/*/////////////rech SPINER
 ArrayList<String> l1 = getlistnom();
 
 dialog = new SpinnerDialog(ListMatdispo.this,l1,"Select Item");
@@ -93,74 +95,15 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
     public void onClick(String s, int i) {
         search.setText(s);
     }
-});
+});*/
 
 
 
 ////////////////////////////////////
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
 
-                try {
-
-                    JSONArray js=response.getJSONArray("result");
-
-                    for(int i=0;i<js.length();i++) {
-
-                        JSONObject jsa=js.getJSONObject(i);
-                        m=new Matdispo();
-                        m.setId(Integer.parseInt(jsa.getString("id")));
-                        m.setName(jsa.getString("name"));
-                        m.setQte(Integer.parseInt(jsa.getString("qte")));
-                        m.setDescription(jsa.getString("description"));
-                        m.setImage_path(jsa.getString("image_path"));
-                        l.add(m);
-                    }
-
-                    adapter=new CustomListAdapter(ListMatdispo.this,l);
-                    LIST.setAdapter(adapter);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/json; charset=utf-8");
-                return headers;
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(ListMatdispo.this);
-
-        queue.add(request);
 
 ////////////////////////////////////////////////////////////////////////
-     LIST.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-         @Override
-         public void onItemClick(AdapterView<?> adapterView, View viewx, int i, long l) {
-             Matdispo m= (Matdispo) adapter.getItem(i);
-               Intent intent = new Intent(ListMatdispo.this,Detail.class);
-               Bundle bundle = new Bundle();
-               bundle.putString("nom",m.getName());
-               bundle.putInt("id",m.getId());
-               Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
-               bundle.putInt("qte",m.getQte());
-               bundle.putString("description",m.getDescription());
-               bundle.putString("path",m.getImage_path());
-               Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
-               intent.putExtras(bundle);
-               startActivity(intent);
-         }
-     });
+
 
 /*
      SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -205,9 +148,80 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
 
 
 
-
-
         /////////////////
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+         l.clear();
+        /*CustomListAdapter K = new CustomListAdapter(ListMatdispo.this,l);
+        LIST.setAdapter(K);*/
+
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    JSONArray js=response.getJSONArray("result");
+
+                    for(int i=0;i<js.length();i++) {
+
+                        JSONObject jsa=js.getJSONObject(i);
+                        m=new Matdispo();
+                        m.setId(Integer.parseInt(jsa.getString("id")));
+                        m.setName(jsa.getString("name"));
+                        m.setQte(Integer.parseInt(jsa.getString("qte")));
+                        m.setDescription(jsa.getString("description"));
+                        m.setImage_path(jsa.getString("image_path"));
+                        l.add(m);
+                    }
+
+                    adapter=new CustomListAdapter(ListMatdispo.this,l);
+                    LIST.setAdapter(adapter);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(ListMatdispo.this);
+
+        queue.add(request);
+
+        LIST.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View viewx, int i, long l) {
+                Matdispo m= (Matdispo) adapter.getItem(i);
+                Intent intent = new Intent(ListMatdispo.this,Detail.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("nom",m.getName());
+                bundle.putInt("id",m.getId());
+                //  Toast.makeText(ListMatdispo.this,m.getName(), Toast.LENGTH_SHORT).show();
+                bundle.putInt("qte",m.getQte());
+                bundle.putString("description",m.getDescription());
+                bundle.putString("path",m.getImage_path());
+                //   Toast.makeText(ListMatdispo.this,m.getImage_path(), Toast.LENGTH_SHORT).show();
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -250,5 +264,10 @@ dialog.bindOnSpinerListener(new OnSpinerItemClick() {
         queue.add(request);
 
         return (ArrayList<String>) lx;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

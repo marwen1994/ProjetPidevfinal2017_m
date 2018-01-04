@@ -30,7 +30,7 @@ TextView textView ,textView1,textView2,textView3,textView4;
 EditText editText,editText1,editText2,editText3;
     Button button;
 
-    String url1 = "http://172.16.8.138/miniprojet/public/checkmail";
+    String url1 = "http://192.168.0.121/miniprojet/public/checkmail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

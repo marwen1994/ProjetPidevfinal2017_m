@@ -9,6 +9,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
@@ -67,7 +68,7 @@ public class CustomListAdapter extends BaseAdapter implements Filterable{
 
          nom.setText(m.getName());
          Picasso.with(activity.getApplicationContext()).load(m.getImage_path()).into(im);
-         categorie.setText(m.getQte()+ "pieces");
+         categorie.setText(m.getQte()+"pieces");
 
         return convertView;
     }
