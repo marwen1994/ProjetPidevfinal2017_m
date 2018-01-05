@@ -50,7 +50,7 @@ public class ListMatdispo extends AppCompatActivity {
     Matdispo m;
     SpinnerDialog  dialog ;
    CustomListAdapter adapter ;
-    String url = "http://192.168.0.121/Miniprojet/public/getalldispo";
+    String url = "http://172.16.8.138/Miniprojet/public/getalldispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

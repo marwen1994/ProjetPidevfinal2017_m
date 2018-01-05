@@ -72,9 +72,9 @@ public class EditProfile extends AppCompatActivity {
     TextView name,mail,group,pass;
     View view;
     Button button1,button2;
-    String url = "http://192.168.0.121/miniprojet/public/updatePwdMail";
-    String ServerUploadPath ="http://192.168.0.121/miniprojet/public/setimg" ;
-    String url2 = "http://192.168.0.121/miniprojet/public/getimg" ;
+    String url = "http://172.16.8.138/miniprojet/public/updatePwdMail";
+    String ServerUploadPath ="http://172.16.8.138/miniprojet/public/setimg" ;
+    String url2 = "http://172.16.8.138/miniprojet/public/getimg" ;
     ProgressDialog progressDialog ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

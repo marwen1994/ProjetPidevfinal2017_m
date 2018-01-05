@@ -41,7 +41,7 @@ public class ListMatNondispo extends AppCompatActivity {
     EditText search;
     SpinnerDialog dialog ;
     CustomerListAdapterMatNonDisoponible adapter ;
-    String url = "http://192.168.0.121/Miniprojet/public/getallnondispo";
+    String url = "http://172.16.8.138/Miniprojet/public/getallnondispo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

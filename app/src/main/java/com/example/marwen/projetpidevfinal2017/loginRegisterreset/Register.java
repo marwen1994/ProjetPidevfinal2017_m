@@ -25,12 +25,15 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import spencerstudios.com.fab_toast.FabToast;
+
 public class Register extends AppCompatActivity {
 TextView textView ,textView1,textView2,textView3,textView4;
 EditText editText,editText1,editText2,editText3;
     Button button;
+    boolean resultat;
 
-    String url1 = "http://192.168.0.121/miniprojet/public/checkmail";
+    String url1 = "http://172.16.8.138/miniprojet/public/checkmail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,21 +63,24 @@ EditText editText,editText1,editText2,editText3;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!editText1.getText().toString().matches("[a-z0-9._%+-]+@(esprit.tn)$")) {
+                if ((editText.getText().toString().equals(""))){
+                    FabToast.makeText(Register.this, "Check Your name", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
 
-                    Toast.makeText(Register.this, "Enter un mail Esprit.tn", Toast.LENGTH_SHORT).show();
+
                 }
+             else   if (!editText1.getText().toString().matches("[a-z0-9._%+-]+@(esprit.tn)$")) {
+                    FabToast.makeText(Register.this, "Enter un mail Esprit.tn", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+                }
+
                 else if (!(editText3.getText().toString().equals(editText2.getText().toString()))) {
 
-                    Toast.makeText(Register.this, "Pssword n'est pas conforme", Toast.LENGTH_SHORT).show();
-                    editText3.setText("");
-
+                    FabToast.makeText(Register.this, "Confirm Your Password", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
                 }
 
-             else   if ((cheak())) {
+             else   if (!(cheak())) {
 
-                    Toast.makeText(Register.this, "Vous etes Inscrits deja", Toast.LENGTH_SHORT).show();
-
+                    FabToast.makeText(Register.this, "YOU ARE ALREADY Inscribed", FabToast.LENGTH_SHORT, FabToast.WARNING,  FabToast.POSITION_DEFAULT).show();
 
                     editText1.setText("");
 
@@ -106,7 +112,6 @@ EditText editText,editText1,editText2,editText3;
 
     public  boolean cheak(){
 
-
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -114,11 +119,7 @@ EditText editText,editText1,editText2,editText3;
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     Boolean res = jsonObject.getBoolean("result");
-
-                    if (res) {
-                        Toast.makeText(Register.this, res.toString(), Toast.LENGTH_SHORT).show();
-
-                    }
+                    resultat = res;
 
 
                 } catch (JSONException e) {
@@ -148,7 +149,7 @@ EditText editText,editText1,editText2,editText3;
 
 
 
-return false;
+return resultat;
 
 
 

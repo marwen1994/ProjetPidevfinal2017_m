@@ -37,8 +37,8 @@ public class DeatailMatNonDispo extends AppCompatActivity {
     int id;
     String imgpath;
     Button url;
-    String url1="http://192.168.0.121/miniprojet/public/sendnotifById";
-    String url2="http://192.168.0.121/miniprojet/public/sendnotifById";
+    String url1="http://172.16.8.138/miniprojet/public/sendnotifById";
+    String url2="http://172.16.8.138/miniprojet/public/sendnotifById";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

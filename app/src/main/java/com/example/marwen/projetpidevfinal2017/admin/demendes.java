@@ -41,11 +41,11 @@ public class demendes extends AppCompatActivity {
     Matdispo m;
     List<Matdispo> list = new ArrayList<>();
     String Grp;
-    String url = "http://192.168.0.121/miniprojet/public/getdemByGroup";
-    String url1 = "http://192.168.0.121/miniprojet/public/getMatByIDAndroid";
-    String url2 = "http://192.168.0.121/miniprojet/public/getUserByEmail";
-    String url3 = "http://192.168.0.121/miniprojet/public/sendnotifById";
-    String url4 = "http://192.168.0.121/miniprojet/public/setqte";
+    String url = "http://172.16.8.138/miniprojet/public/getdemByGroup";
+    String url1 = "http://172.16.8.138/miniprojet/public/getMatByIDAndroid";
+    String url2 = "http://172.16.8.138/miniprojet/public/getUserByEmail";
+    String url3 = "http://172.16.8.138/miniprojet/public/sendnotifById";
+    String url4 = "http://172.16.8.138/miniprojet/public/setqte";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

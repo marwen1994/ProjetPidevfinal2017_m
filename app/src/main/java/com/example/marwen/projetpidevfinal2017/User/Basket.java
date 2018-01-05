@@ -35,6 +35,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import spencerstudios.com.fab_toast.FabToast;
+
 public class Basket extends AppCompatActivity {
     List<Matdispo> listm = new ArrayList<>();
     List<Matdispo> lista = new ArrayList<>();
@@ -42,8 +44,8 @@ public class Basket extends AppCompatActivity {
     SwipeMenuListView LIST;
     Matdispo m;
     List<String> list= new ArrayList<>();
-    String url = "http://192.168.0.121/miniprojet/public/getallbasket";
-    String url1 = "http://192.168.0.121/miniprojet/public/Demenderandroid";
+    String url = "http://172.16.8.138/miniprojet/public/getallbasket";
+    String url1 = "http://172.16.8.138/miniprojet/public/Demenderandroid";
     String email ;
     String user_email ;
     @Override
@@ -96,7 +98,7 @@ public class Basket extends AppCompatActivity {
 
                         }
 
-                    Toast.makeText(Basket.this, m.getName(), Toast.LENGTH_SHORT).show();
+
 
 
                     BasketAdapter adapter = new BasketAdapter(Basket.this, listm);
@@ -139,7 +141,8 @@ public class Basket extends AppCompatActivity {
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(Basket.this, jsonObject+"", Toast.LENGTH_LONG).show();
+                    FabToast.makeText(getApplicationContext(), "Your Request Is Saved Seccessfully", FabToast.LENGTH_SHORT, FabToast.SUCCESS,  FabToast.POSITION_DEFAULT).show();
+                  //  Toast.makeText(Basket.this, jsonObject+"", Toast.LENGTH_LONG).show();
 //                    Boolean res = jsonObject.getBoolean("result");
 //
 //                    if (res) {

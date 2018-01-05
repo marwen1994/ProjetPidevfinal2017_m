@@ -50,8 +50,8 @@ public class Listeusers extends AppCompatActivity {
     User m;
     SpinnerDialog dialog ;
     CustomerListAdapterUsers adapter ;
-    String url = "http://192.168.0.121/Miniprojet/public/getallusers";
-    String url1 ="http://192.168.0.121/Miniprojet/public/updatestatus";
+    String url = "http://172.16.8.138/Miniprojet/public/getallusers";
+    String url1 ="http://172.16.8.138/Miniprojet/public/updatestatus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

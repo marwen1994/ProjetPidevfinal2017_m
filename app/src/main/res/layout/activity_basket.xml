@@ -8,37 +8,34 @@
     android:background="@android:color/black">
 
 
-    <EditText
-        android:id="@+id/serach"
+
+    <TextView
+        android:id="@+id/serach_grp"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:ems="10"
+        android:layout_marginTop="5dp"
         android:inputType="textPersonName"
-        android:hint="   Search "
-        android:textColorHint="#080606"
+        android:text="Basket  "
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:textColor="#080606"
         android:background="@android:color/white"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/search" />
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/list_Basket"
         android:dividerHeight="10dp"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/serach"
-        android:layout_marginTop="1dp" />
+        android:layout_below="@+id/serach_grp" />
     <Button
 
-        android:text="Demander"
+        android:text="Request"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@color/colorAccent"

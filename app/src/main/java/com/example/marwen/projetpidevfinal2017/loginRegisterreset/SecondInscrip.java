@@ -24,10 +24,12 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import spencerstudios.com.fab_toast.FabToast;
+
 public class SecondInscrip extends AppCompatActivity {
     EditText group , mail,mail1,mail2;
     Button go ;
-    String url = "http://192.168.0.121/miniprojet/public/storeUser";
+    String url = "http://172.16.8.138/miniprojet/public/storeUser";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +43,22 @@ public class SecondInscrip extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if ((group.getText().toString().equals(""))){
+                    FabToast.makeText(getApplicationContext(), "Enter Your Group Name", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
 
-                       StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+                }
+                else   if (!mail.getText().toString().matches("[a-z0-9._%+-]+@(esprit.tn)$")) {
+                    FabToast.makeText(getApplicationContext(), "Enter un mail Esprit.tn", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+                }
+                else   if (!mail1.getText().toString().matches("[a-z0-9._%+-]+@(esprit.tn)$")) {
+                    FabToast.makeText(getApplicationContext(), "Enter un mail Esprit.tn", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+
+                }
+
+                else {
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
@@ -51,9 +67,10 @@ public class SecondInscrip extends AppCompatActivity {
                                 Boolean res = jsonObject.getBoolean("result");
 
                                 if (res) {
-                                    Toast.makeText(SecondInscrip.this, "Vous etes Inscrits", Toast.LENGTH_SHORT).show();
+
                                     Intent intent = new Intent(SecondInscrip.this, Login.class);
                                     startActivity(intent);
+                                    FabToast.makeText(getApplicationContext(), "Your are Inscribed", FabToast.LENGTH_SHORT, FabToast.SUCCESS,  FabToast.POSITION_DEFAULT).show();
 
                                 } else {
                                     Toast.makeText(SecondInscrip.this, "laaaa", Toast.LENGTH_SHORT).show();
@@ -77,9 +94,9 @@ public class SecondInscrip extends AppCompatActivity {
                             Map<String, String> map = new HashMap<String, String>();
 
 
-                            map.put("name",new SessionManager(SecondInscrip.this).getName().get("name"));
-                            map.put("email",new SessionManager(SecondInscrip.this).getUserDetail().get("email"));
-                            map.put("password",new SessionManager(SecondInscrip.this).getUserPassword().get("Password"));
+                            map.put("name", new SessionManager(SecondInscrip.this).getName().get("name"));
+                            map.put("email", new SessionManager(SecondInscrip.this).getUserDetail().get("email"));
+                            map.put("password", new SessionManager(SecondInscrip.this).getUserPassword().get("Password"));
                             map.put("Groupename", group.getText().toString().trim());
                             map.put("first", mail.getText().toString().trim());
                             map.put("second", mail1.getText().toString().trim());
@@ -92,10 +109,7 @@ public class SecondInscrip extends AppCompatActivity {
                     queue.add(request);
 
 
-
-
-
-
+                }
             }
         });
     }

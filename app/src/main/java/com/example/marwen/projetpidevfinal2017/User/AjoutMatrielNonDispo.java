@@ -38,7 +38,7 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
     String ImageName = "image_name" ;
     String ImagePath = "image_path" ;
     String imgname ;
-    String ServerUploadPath ="http://192.168.0.121/miniprojet/public/setMat" ;
+    String ServerUploadPath ="http://172.16.8.138/miniprojet/public/setMat" ;
     String groupname ;
     String prixx ;
     String descripp ;
@@ -173,11 +173,6 @@ public class AjoutMatrielNonDispo extends AppCompatActivity {
 
         }
 
-     /*   else if (!(prixx.toString().equals("[0-9]*"))){
-
-            FabToast.makeText(getApplicationContext(),"Inter Price Number", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
-
-        }*/
 
         else if ((descripp.toString().equals(""))){
             FabToast.makeText(getApplicationContext(), "Invalid Impout", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();

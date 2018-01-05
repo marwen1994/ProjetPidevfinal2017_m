@@ -34,8 +34,8 @@ public class Login extends AppCompatActivity {
     EditText editText, editText1;
     TextView textView, textView1,textView2,textView3;
     Button button;
-    String url = "http://192.168.0.121/miniprojet/public/checkUser";
-    String url1 = "http://192.168.0.121/miniprojet/public/getUserByEmail";
+    String url = "http://172.16.8.138/miniprojet/public/checkUser";
+    String url1 = "http://172.16.8.138/miniprojet/public/getUserByEmail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
 
 
 else{
-                    getall();
+
                     StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -93,12 +93,15 @@ else{
                                 String res = jsonObject.getString("result");
 
                                 if (res.equals("true")) {
+                                    getall();
                                     new SessionManager(getApplicationContext()).UserDetail(editText.getText().toString());
                                     new SessionManager(getApplicationContext()).UserPassword(editText1.getText().toString());
                                     FabToast.makeText(Login.this, "Wellcome" + editText.getText(), FabToast.LENGTH_LONG, FabToast.SUCCESS, FabToast.POSITION_DEFAULT).show();
                                     //subscribing to notification
-                                    String id = new SessionManager(getApplication()).getId().get("id");
-                                    FirebaseMessaging.getInstance().subscribeToTopic(id);
+                                   // String id = new SessionManager(getApplication()).getId().get("id");
+                                   // if(id != null ) {
+
+                                  //  }
                                     if ((editText.getText().toString().equals("marwen@admin.com"))) {
                                         Intent intent = new Intent(Login.this, AdminMainActivity.class);
                                         startActivity(intent);
@@ -108,7 +111,7 @@ else{
                                     }
 
                                 } else {
-                                    FabToast.makeText(Login.this, "Cheak Your Email Or Password", FabToast.LENGTH_SHORT, FabToast.ERROR, FabToast.POSITION_DEFAULT).show();
+                                    FabToast.makeText(Login.this, "Check Your Email Or Password", FabToast.LENGTH_SHORT, FabToast.ERROR, FabToast.POSITION_DEFAULT).show();
 
                                 }
 
@@ -158,7 +161,7 @@ public  void getall(){
                 new SessionManager(getApplicationContext()).setName(res.toString());
                 new SessionManager(getApplication()).setId(id);
                 new SessionManager(getApplication()).setStatus(status);
-
+                FirebaseMessaging.getInstance().subscribeToTopic(id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

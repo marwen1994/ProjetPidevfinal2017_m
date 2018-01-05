@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
 
 
     android:layout_marginTop="60dp"
@@ -14,7 +15,6 @@
         android:background="@android:color/white"
         app:cardBackgroundColor="@android:color/black"
         app:cardElevation="5dp"
-
         app:cardUseCompatPadding="true">
 
         <RelativeLayout

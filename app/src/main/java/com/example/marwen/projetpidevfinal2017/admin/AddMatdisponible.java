@@ -34,7 +34,7 @@ public class AddMatdisponible extends AppCompatActivity {
     ProgressDialog progressDialog ;
     Button Upload , add ;
     Bitmap bitmap = null ;
-    String URL ="http://192.168.0.121/miniprojet/public/setMatdispo" ;
+    String URL ="http://172.16.8.138/miniprojet/public/setMatdispo" ;
     String ImageName = "image_name" ;
     String ImagePath = "image_path" ;
     String imagenamex ;
@@ -175,9 +175,9 @@ public class AddMatdisponible extends AppCompatActivity {
             FabToast.makeText(getApplicationContext(),"Invalid Impout", FabToast.LENGTH_SHORT, FabToast.ERROR,  FabToast.POSITION_DEFAULT).show();
         }
 
-     /*   else if (!(qte.toString().equals("[0-9]*"))){
+   /*     else if (!(qte.toString().equals("[0-9]*"))){
 
-            FabToast.makeText(getApplicationContext(),"Inter Price Number", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
+            FabToast.makeText(getApplicationContext(),"Enter Price Number", FabToast.LENGTH_SHORT, FabToast.INFORMATION,  FabToast.POSITION_DEFAULT).show();
 
         }*/
 

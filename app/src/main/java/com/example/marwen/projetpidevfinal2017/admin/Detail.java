@@ -24,6 +24,7 @@ import com.example.marwen.projetpidevfinal2017.EditProfile;
 import com.example.marwen.projetpidevfinal2017.Mail;
 import com.example.marwen.projetpidevfinal2017.R;
 import com.example.marwen.projetpidevfinal2017.SessionManager;
+import com.example.marwen.projetpidevfinal2017.User.AjoutMatrielNonDispo;
 import com.example.marwen.projetpidevfinal2017.User.Basket;
 import com.example.marwen.projetpidevfinal2017.User.MainActivity;
 import com.example.marwen.projetpidevfinal2017.loginRegisterreset.Login;
@@ -45,7 +46,7 @@ public class Detail extends AppCompatActivity {
     ImageView image;
     TextView name, amount, description;
     int id;
-    String url = "http://192.168.0.121/miniprojet/public/addBasket";
+    String url = "http://172.16.8.138/miniprojet/public/addBasket";
     String imgpath;
 
     FloatingActionButton button;
@@ -88,7 +89,9 @@ public class Detail extends AppCompatActivity {
 
                     if (res.equals("true")){
 
-                        FabToast.makeText(Detail.this, "Secces" , FabToast.LENGTH_SHORT, FabToast.SUCCESS, FabToast.POSITION_DEFAULT).show();
+                        FabToast.makeText(Detail.this, "Equipement was Added To Your Basket" , FabToast.LENGTH_SHORT, FabToast.SUCCESS, FabToast.POSITION_DEFAULT).show();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
 
                     } else {
                         FabToast.makeText(Detail.this, "Error" , FabToast.LENGTH_LONG, FabToast.ERROR, FabToast.POSITION_DEFAULT).show();

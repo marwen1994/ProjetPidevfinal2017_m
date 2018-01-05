@@ -30,7 +30,7 @@ public class DemendeGrp extends AppCompatActivity {
     SwipeMenuListView LIST;
     DemGrpAdapter adapter ;
     List<String> list= new ArrayList<>();
-    String url = "http://192.168.0.121/miniprojet/public/getalldem";
+    String url = "http://172.16.8.138/miniprojet/public/getalldem";
     //String url1 = "http://10.0.2.2/miniprojet/public/Demender";
 
     @Override
